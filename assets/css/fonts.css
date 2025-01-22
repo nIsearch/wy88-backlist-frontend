@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'SukhumvitSet';
+    src: url('/fonts/SukhumvitSet-SemiBold.ttf') format('truetype'); /* เปลี่ยนเป็น .woff/.woff2 หากมี */
+    font-weight: 600; /* SemiBold */
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'SukhumvitSet', sans-serif;
+  }
+  

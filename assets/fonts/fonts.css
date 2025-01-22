@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'SukhumvitSet';
+    src: url('/fonts/SukhumvitSet-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* SemiBold */
+    font-style: normal;
+  }
+  
+  /* กำหนดฟอนต์ SukhumvitSet ให้เป็นฟอนต์หลักของเว็บ */
+  html {
+    font-family: 'SukhumvitSet', sans-serif;
+  }
+  
