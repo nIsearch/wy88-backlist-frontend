@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-[#252525] shadow py-4">
+  <div class="bg-[#2b2b2b] shadow pt-4 py-3">
     <div class="container">
       <div class="mb-6 rounded-md">
         <h2 class="text-2xl font-bold text-white">เพิ่มข้อมูลผู้ใช้แบล็คลีส</h2>
-        <p class="text-[#ED9200]">หน้าแรก</p>
+        <p class="text-[#ED9200] text-lg">หน้าแรก</p>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
         <div class="col-span-1">
           <div class="rounded-lg">
             <div class="p-4 py-5">
-              <div class="py-10 text-white" style="background-color: #2b2b2b">
+              <div class="py-10 text-white" >
                 <div class="px-10">
                   <h2 class="text-white text-center">
                     สามารถเพิ่มข้อมูลโดยการ อัพโหลดเป็นไฟล์
@@ -34,7 +34,7 @@
                     <!-- ปุ่มเลือกไฟล์ -->
                     <label
                       for="fileInput"
-                      class="bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white px-10 py-3 rounded-full mr-4 cursor-pointer"
+                      class="bg-gradient-to-b  from-[#Ed9200] to-[#FC6900] text-white px-10 py-3 rounded-full mr-4 cursor-pointer"
                       >เลือกไฟล์</label
                     >
                     <input
@@ -109,10 +109,10 @@
                 style="
                   background-color: #252525;
                   padding-top: 50px;
-                  border-radius: 30px;
+                  border-radius: 15px;
                 "
               >
-                <div class="px-5">
+                <div class="px-5  pb-2">
                   <h2 class="text-white text-center">ฟอร์มแบบกรอกข้อมูล</h2>
                   <span class="text-2xl text-white">
                     ฟอร์มกรอกข้อมูล

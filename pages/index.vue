@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#2B2B2B] pb-5">
+  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] ">
     <!-- Popup Error -->
     <div
       v-if="showError"
@@ -9,19 +9,19 @@
       <span>{{ errorMessage }}</span>
     </div>
 
-    <div class="bg-[#252525] shadow py-4">
+    <div class="bg-[#2b2b2b] shadow py-4">
       <!-- Header -->
-      <header class="">
+      <div class="">
         <div class="container mx-auto">
           <h1 class="text-2xl font-bold text-white">ค้นหาผู้ใช้ที่ถูกแบน</h1>
         </div>
-      </header>
+      </div>
 
       <!-- Breadcrumbs -->
-      <nav class="">
-        <div class="container mx-auto">
+      <nav class="pl-8">
+        <div class=" mx-auto">
           <ol class="flex space-x-2 text-sm text-white">
-            <li class="text-[#ED9200] text-lg hover:text-gray-700">หน้าแรก</li>
+            <li class="text-[#ED9200] text-lg">หน้าแรก</li>
             <li class="text-lg">&gt;</li>
             <li class="text-lg">ค้นหาผู้ใช้ที่ถูกแบน</li>
           </ol>
@@ -37,16 +37,16 @@
           <div class="relative">
             <input
               type="text"
-              placeholder="ค้นหาผู้ใช้"
+              placeholder="ค้นหา"
               class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
               v-model="searchTerm"
             />
             <span class="absolute right-2 top-2 text-white">
               <img
-              src="assets\images\icon _input search.png"
-              alt="Home Icon"
-              class="w-6 h-6 mr-2"
-            />
+                src="assets\images\icon _input search.png"
+                alt="Home Icon"
+                class="w-6 h-6 mr-2"
+              />
             </span>
           </div>
         </div>
@@ -55,46 +55,51 @@
       <!-- Contacts List -->
       <div
         v-if="paginatedContacts.length > 0"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8"
       >
         <div
           v-for="contact in paginatedContacts"
           :key="contact.id"
-          class="bg-white shadow-md rounded-lg overflow-hidden"
+          class="bg-white shadow-md rounded-lg overflow-hidden "
         >
-        <div
-  :class="{
-    'border border-red-600 bg-black text-white rounded-md': contact.status_name === 'ติดแบน',
-    'border border-green-600 bg-black text-white rounded-md': contact.status_name === 'ปลดแบน',
-  }"
->
-  <h3
-    :class="{
-      'bg-red-600 text-center text-xl text-white font-semibold py-2 rounded-t-md': contact.status_name === 'ติดแบน',
-      'bg-[#009C12] text-center text-xl text-white font-semibold py-2 rounded-t-md': contact.status_name === 'ปลดแบน',
-    }"
-  >
-    ชื่อผู้ใช้ : {{ contact.username }}
-  </h3>
-  <p class="text-l text-gray-300 mt-6 px-8">
-    รายละเอียด : {{ contact.detail }}
-  </p>
-  <p class="text-l text-gray-300 px-8">
-    ข้อมูลเมื่อ : {{ contact.date }}
-  </p>
-  <p class="text-l text-gray-300 px-8 pb-6">
-    สถานะปัจจุบัน :
-    <span
-      :class="{
-        'bg-red-600 text-white px-2 py-1 rounded-full': contact.status_name === 'ติดแบน',
-        'bg-[#009C12] text-white px-2 py-1 rounded-full': contact.status_name === 'ปลดแบน',
-      }"
-    >
-      {{ contact.status_name }}
-    </span>
-  </p>
-</div>
-
+          <div
+            :class="{
+              'border-2 border-red-600 bg-black text-white rounded-md':
+                contact.status_name === 'ติดแบน',
+              'border-2 border-[#009C12] bg-black text-white rounded-md':
+                contact.status_name === 'ปลดแบน',
+            }"
+          >
+            <h3
+              :class="{
+                'bg-red-600 text-center text-xl text-white font-semibold py-2 rounded-t-md':
+                  contact.status_name === 'ติดแบน',
+                'bg-[#009C12] text-center text-xl text-white font-semibold py-2 rounded-t-md':
+                  contact.status_name === 'ปลดแบน',
+              }"
+            >
+              ชื่อผู้ใช้ : {{ contact.username }}
+            </h3>
+            <p class="text-l text-gray-300 mt-6 px-8">
+              รายละเอียด : {{ contact.detail }}
+            </p>
+            <p class="text-l text-gray-300 px-8">
+              ข้อมูลเมื่อ : {{ contact.date }}
+            </p>
+            <p class="text-l text-gray-300 px-8 pb-6">
+              สถานะปัจจุบัน :
+              <span
+                :class="{
+                  'bg-red-600 text-white px-2 py-1 rounded-full':
+                    contact.status_name === 'ติดแบน',
+                  'bg-[#009C12] text-white px-2 py-1 rounded-full':
+                    contact.status_name === 'ปลดแบน',
+                }"
+              >
+                {{ contact.status_name }}
+              </span>
+            </p>
+          </div>
         </div>
       </div>
       <div v-else class="text-center text-gray-600">
@@ -102,15 +107,15 @@
       </div>
     </main>
     <!-- Pagination -->
-    <div class="bg-gradient-to-b from-gray-700 to-black px-4 py-3">
+    <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] px-4 py-2 ">
       <!-- Pagination -->
-      <div class="flex justify-center items-center gap-1 flex-wrap">
+      <div class="flex justify-center items-center gap-1 flex-wrap ">
         <!-- ปุ่มหน้าแรก -->
         <button
           @click="goToPage(1)"
           :disabled="currentPage === 1"
-          class="py-2 px-3 rounded border text-white border-gray-300 bg-[#8A8A8A] hover:bg-purple-100 text-xs sm:text-sm"
-          :class="{ 'cursor-not-allowed opacity-50': currentPage === 1 }"
+          class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
+          :class="{ 'cursor-not-allowed  opacity-50': currentPage === 1 }"
         >
           &lt;&lt;
         </button>
@@ -120,7 +125,7 @@
           v-for="(page, index) in visiblePages"
           :key="index"
           @click="goToPage(page)"
-          class="py-2 px-3 rounded border border-gray-300 bg-white hover:bg-purple-100 text-xs sm:text-sm"
+          class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
           :class="{
             'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
               currentPage === page,
@@ -137,7 +142,7 @@
         <button
           @click="goToPage(totalPages)"
           :disabled="currentPage === totalPages"
-          class="py-2 px-3 rounded border text-white border-gray-300 bg-[#8A8A8A] hover:bg-purple-100 text-xs sm:text-sm"
+          class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
           :class="{
             'cursor-not-allowed opacity-50': currentPage === totalPages,
           }"
@@ -183,13 +188,13 @@ export default {
   },
   setup() {
     useHead({
-    title: "ค้นหาผู้ใช้ที่โดนแบล็คลีส",
-    meta: [
-      { name: "robots", content: "noindex, nofollow" },
-      { name: "keywords", content: "" },
-      { name: "description", content: "ค้นหาผู้ใช้ที่โดนแบล็คลีส" },
-    ],
-  });
+      title: "ค้นหาผู้ใช้ที่โดนแบล็คลีส",
+      meta: [
+        { name: "robots", content: "noindex, nofollow" },
+        { name: "keywords", content: "" },
+        { name: "description", content: "ค้นหาผู้ใช้ที่โดนแบล็คลีส" },
+      ],
+    });
     const searchTerm = ref(""); // เก็บค่าจากช่องค้นหา
     const users = ref([]); // ข้อมูลผู้ใช้ทั้งหมด
     const currentPage = ref(1); // หน้าปัจจุบัน

@@ -39,8 +39,8 @@
           <!-- Dashboard Link -->
           <NuxtLink
             to="/"
-            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-white transition duration-200"
-            :class="{ 'bg-[#4e4e4e] text-[#fff]': isActive('/') }"
+            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
+            :class="{ 'bg-[#2a2a2a] text-[#fff]': isActive('/') }"
             @click="sidebarOpen = false"
           >
             <img
@@ -64,8 +64,8 @@
           <!-- Dashboard Link -->
           <NuxtLink
             to="/"
-            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-white transition duration-200"
-            :class="{ 'bg-[#4e4e4e] text-[#fff]': isActive('/') }"
+            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
+            :class="{ 'bg-[#2a2a2a] text-[#fff]': isActive('/') }"
             @click="sidebarOpen = false"
           >
             <img
@@ -78,9 +78,9 @@
 
           <NuxtLink
             to="/add-user-backlist/add_user_backlist"
-            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-black transition duration-200"
+            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
             :class="{
-              'bg-[#4e4e4e] text-[#fff]': isActive(
+              'bg-[#2a2a2a] text-[#fff]': isActive(
                 '/add-user-backlist/add_user_backlist'
               ),
             }"
@@ -95,9 +95,9 @@
           </NuxtLink>
           <NuxtLink
             to="/tabel-project/tabel-project-name"
-            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-black transition duration-200"
+            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
             :class="{
-              'bg-[#4e4e4e] text-[#fff]': isActive(
+              'bg-[#2a2a2a] text-[#fff]': isActive(
                 '/tabel-project/tabel-project-name'
               ),
             }"
@@ -112,9 +112,9 @@
           </NuxtLink>
           <NuxtLink
             to="/table-banned-users/table_blacklist_users"
-            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-black transition duration-200"
+            class=" px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
             :class="{
-              'bg-[#4e4e4e] text-[#fff]': isActive(
+              'bg-[#2a2a2a] text-[#fff]': isActive(
                 '/table-banned-users/table_blacklist_users'
               ),
             }"
@@ -129,9 +129,9 @@
           </NuxtLink>
           <NuxtLink
             to="/table-admin/tabel_admin"
-            class="block px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-gray-300 hover:text-black transition duration-200"
+            class="px-4 py-4 text-[#fff] rounded flex items-center space-x-4 hover:bg-[#383838] hover:text-white transition duration-200"
             :class="{
-              'bg-[#4e4e4e] text-[#fff]': isActive('/table-admin/tabel_admin'),
+              'bg-[#2a2a2a] text-[#fff]': isActive('/table-admin/tabel_admin'),
             }"
             @click="sidebarOpen = false"
           >
@@ -146,7 +146,7 @@
       </div>
 
       <!-- Logout/Settings -->
-      <div class="bg-[#4e4e4e] p-4 mt-auto rounded">
+      <div class="bg-[#4e4e4e] p-2 mt-auto rounded">
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <img
@@ -220,7 +220,7 @@
       class="flex-1 p-0 overflow-y-auto transition-all duration-200"
       :class="{ 'lg:ml-100': !screenIsSmall || sidebarOpen }"
     >
-      <header class="bg-gradient-to-b from-gray-700 to-black shadow-md">
+      <header class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] shadow-md">
         <div class="flex justify-between items-center px-4 py-3">
           <!-- Mobile Media Block Start -->
           <div class="flex space-x-4">
@@ -283,7 +283,7 @@
           <!-- Mobile Media Block End -->
 
           <!-- Right Side Options -->
-          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4 py-3">
             <!-- Notification Dropdown 
             <div class="relative">
               <button
@@ -413,7 +413,7 @@
 
       <!-- Content Slot -->
 
-      <div class="overflow-x-hidden bg-[#2B2B2B] min-h-screen">
+      <div class="overflow-x-hidden bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] min-h-screen">
         <NuxtPage />
       </div>
       <!--<Footer />-->

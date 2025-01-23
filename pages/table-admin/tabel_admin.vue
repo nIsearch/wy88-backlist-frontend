@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#252525] shadow py-4">
+  <div class="bg-[#2b2b2b] shadow py-4">
     <div class="container">
       <div class="mb-6 rounded-md">
         <h2 class="text-2xl font-bold text-white">
@@ -62,7 +62,7 @@
         <div class="overflow-x-auto">
           <table class="table-auto w-full border-collapse">
             <thead
-              class="bg-gradient-to-b from-gray-700 to-black text-white text-lg rounded-full"
+              class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] text-white text-lg rounded-full"
             >
               <tr>
                 <th class="px-4 py-3 text-center rounded">ชื่อผู้ใช้</th>
@@ -151,14 +151,14 @@
       </div>
     </div>
   </div>
-  <div class="bg-gradient-to-b from-gray-700 to-black px-4 my-3">
-    <div class="flex justify-center items-center mt-5 gap-2 py-3 text-white">
+  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] px-4 py-2">
+    <div class="flex justify-center items-center  gap-2">
       <button
         @click="goToPage(1)"
         :disabled="currentPage === 1"
-        class="py-2 px-4 rounded border text-white border-gray-300 bg-[#8A8A8A] hover:bg-purple-100"
+        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
-          'cursor-not-allowed opacity-50 text-white': currentPage === 1,
+          'cursor-not-allowed opacity-50 ': currentPage === 1,
         }"
       >
         &lt;&lt;
@@ -167,7 +167,7 @@
         v-for="(page, index) in paginationRange"
         :key="index"
         @click="goToPage(page)"
-        class="py-2 px-4 rounded border border-gray-300 bg-[#8A8A8A] hover:bg-purple-100"
+        class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
           'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
             currentPage === page,
@@ -178,9 +178,9 @@
       <button
         @click="goToPage(totalPages)"
         :disabled="currentPage === totalPages"
-        class="py-2 px-4 rounded border border-gray-300 text-white bg-[#8A8A8A] hover:bg-purple-100"
+        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
-          'cursor-not-allowed opacity-50 text-white':
+          'cursor-not-allowed opacity-50':
             currentPage === totalPages,
         }"
       >

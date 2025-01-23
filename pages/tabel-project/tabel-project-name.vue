@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-[#252525] shadow py-4">
+  <div class="bg-[#2b2b2b] shadow py-4">
     <div class="container">
       <div class="mb-6 rounded-md">
         <h2 class="text-2xl font-bold text-white">ตารางโปรเจค</h2>
-        <p class="text-[#ED9200]">หน้าแรก</p>
+        <p class="text-[#ED9200] text-lg">หน้าแรก</p>
       </div>
     </div>
   </div>
@@ -15,7 +15,7 @@
           <div class="flex justify-end mt-4">
             <button
               @click="openAddPopup"
-              class="px-4 py-1 bg-[#009C12] text-white rounded-[10px] shadow hover:bg-blue-600 flex items-center justify-center gap-2"
+              class="px-4 py-1 bg-[#009C12] text-lg text-white rounded-[8px] shadow hover:bg-blue-600 flex items-center justify-center gap-2"
             >
               <img
                 src="assets\images\image-gallery 1.png"
@@ -42,7 +42,7 @@
             <div class="relative">
               <input
                 type="text"
-                placeholder="ค้นหาผู้ใช้"
+                placeholder="ค้นหา"
                 class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 v-model="search"
               />
@@ -59,7 +59,7 @@
         <div class="overflow-x-auto rounded">
           <table class="table-auto w-full border-collapse">
             <thead
-              class="bg-gradient-to-b from-gray-700 to-black text-white text-lg rounded-full"
+              class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] text-white text-lg rounded-full"
             >
               <tr>
                 <!--<th class="px-4 py-4 text-center border">id</th>-->
@@ -204,12 +204,12 @@
       </div>
     </div>
   </div>
-  <div class="bg-gradient-to-b from-gray-700 to-black px-4 my-3">
-    <div class="flex justify-center items-center mt-5 gap-2 py-3">
+  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] px-4 py-2">
+    <div class="flex justify-center items-center  gap-2">
       <button
         @click="goToPage(1)"
         :disabled="currentPage === 1"
-        class="py-2 px-4 rounded border border-gray-300 bg-[#8A8a8A] hover:bg-purple-100"
+        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
         :class="{ 'cursor-not-allowed opacity-50': currentPage === 1 }"
       >
         &lt;&lt;
@@ -218,7 +218,7 @@
         v-for="(page, index) in paginationRange"
         :key="index"
         @click="goToPage(page)"
-        class="py-2 px-4 rounded border border-gray-300 bg-white hover:bg-purple-100"
+        class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
           'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
             currentPage === page,
@@ -229,7 +229,7 @@
       <button
         @click="goToPage(totalPages)"
         :disabled="currentPage === totalPages"
-        class="py-2 px-4 rounded border border-gray-300 bg-white hover:bg-purple-100"
+        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
           'cursor-not-allowed opacity-50': currentPage === totalPages,
         }"
