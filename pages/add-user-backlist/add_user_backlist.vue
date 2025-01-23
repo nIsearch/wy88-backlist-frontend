@@ -34,7 +34,7 @@
                     <!-- ปุ่มเลือกไฟล์ -->
                     <label
                       for="fileInput"
-                      class="bg-[#ED9200] text-white px-4 py-3 rounded-lg cursor-pointer"
+                      class="bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white px-10 py-3 rounded-full mr-4 cursor-pointer"
                       >เลือกไฟล์</label
                     >
                     <input
@@ -87,13 +87,13 @@
                       </div>
                       <div class="flex justify-center mt-4 gap-2  mb-4">
                         <button
-                          class="px-8 py-2 bg-gray-400 text-white rounded-lg"
+                          class="px-10 py-2 bg-[#8A8A8A] text-white rounded-lg"
                           @click="cancelUpload"
                         >
                           ยกเลิก
                         </button>
                         <button
-                          class="px-8 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg"
+                          class="px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg"
                           @click="confirmUpload"
                         >
                           ตกลง
@@ -255,7 +255,7 @@
                                 >ส่งข้อมูลสำเร็จ</h2
                               >
                             </div>
-                            <p
+                            <span
                               v-if="!isFormSubmission"
                               class="text-[#009C12] text-sm mt-2"
                             >
@@ -263,7 +263,12 @@
                               <span class="font-bold">{{
                                 uploadedFileName
                               }}</span>
-                            </p>
+                            </span><br>
+                            <span
+                              class="text-[#009C12] text-sm whitespace-pre-wrap"
+                            >
+                              {{ apiResponse }}
+                            </span>
                             <div class="flex justify-center items-center mb-4">
                         <img
                           src="assets\images\check 1.png"
@@ -271,12 +276,8 @@
                           class="w-20 h-20 "
                         />
                       </div>
-                            <p
-                              class="text-[#009C12] text-sm whitespace-pre-wrap"
-                            >
-                              {{ apiResponse }}
-                            </p>
-                            <button class="mb-4 px-8 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg" @click="closeModal">
+
+                            <button class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg" @click="closeModal">
                               ตกลง
                             </button>
                           </div>
@@ -576,9 +577,7 @@ input[type="file"] {
   display: none;
 }
 
-label.bg-\[\#ED9200\].text-white.px-4.py-3.rounded-lg.cursor-pointer {
-  margin-right: 15px;
-}
+
 
 input[type="checkbox"] {
   display: none; /* ซ่อน checkbox */

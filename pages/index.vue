@@ -176,7 +176,20 @@ axios.interceptors.response.use(
 );
 
 export default {
+  data() {
+    return {
+      page: 1, // กำหนดตัวแปร page
+    };
+  },
   setup() {
+    useHead({
+    title: "ค้นหาผู้ใช้ที่โดนแบล็คลีส",
+    meta: [
+      { name: "robots", content: "noindex, nofollow" },
+      { name: "keywords", content: "" },
+      { name: "description", content: "ค้นหาผู้ใช้ที่โดนแบล็คลีส" },
+    ],
+  });
     const searchTerm = ref(""); // เก็บค่าจากช่องค้นหา
     const users = ref([]); // ข้อมูลผู้ใช้ทั้งหมด
     const currentPage = ref(1); // หน้าปัจจุบัน

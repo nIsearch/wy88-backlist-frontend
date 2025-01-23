@@ -76,29 +76,29 @@ const closeSuccessPopup = () => {
 
 <template>
   <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
+    class="fixed inset-0 bg-black  bg-opacity-30 z-50 flex justify-center items-center"
     @click="handleOverlayClick"
   >
-    <div class="bg-[#252525] p-6 rounded-lg mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3">
-      <h2 class="font-bold mb-4 text-white">แก้ไขโปรเจ็ค</h2>
+    <div class="bg-[#252525] p-6 rounded-[15px] mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3">
+      <h2 class="font-bold mb-4 text-white">แก้ไขโปรเจค</h2>
       <div>
-        <label class="block mb-2">ชื่อโปรเจ็ค:</label>
+        <label class="block text-left mb-2">ชื่อโปรเจค:</label>
         <input
           v-model="project.name"
           type="text"
-          class="w-full p-2 border rounded bg-[#8D8D8D]"
+          class="w-full p-2 border rounded-lg bg-[#8D8D8D]"
         />
       </div>
       <div class="mt-4 flex justify-end gap-2">
         <button
-          class="px-4 py-2 bg-gray-300 rounded"
+          class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
           @click="handleClose"
           :disabled="isSaving"
         >
           ยกเลิก
         </button>
         <button
-          class="px-4 py-2 bg-[#009C12] text-white rounded"
+          class="py-2 px-10 bg-[#009C12] text-white rounded-[8px] hover:bg-[#268327]"
           @click="handleSave"
           :disabled="isSaving"
         >
@@ -119,13 +119,13 @@ const closeSuccessPopup = () => {
     v-if="isSuccessPopupVisible"
     class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
   >
-    <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded">
-      <h2 class="text-2xl font-bold text-white mb-4">บันทึกสำเร็จ!</h2>
+    <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-[15px]">
+      <h2 class="text-2xl text-white mb-4">แก้ไขโปรเจคสำเร็จ</h2>
       <div class="flex justify-center items-center mb-4">
           <img src="assets\images\Edit_Success_Icon.png" alt="" class="w-20 h-20 mb-4" />
         </div>
       <button
-        class="mb-4 px-4 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded"
+        class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px]"
         @click="closeSuccessPopup"
       >
         ตกลง

@@ -108,7 +108,7 @@
               alt="Home Icon"
               class="w-6 h-6"
             />
-            <span>ตารางจัดการโปรเจ็ค</span>
+            <span>ตารางจัดการโปรเจค</span>
           </NuxtLink>
           <NuxtLink
             to="/table-banned-users/table_blacklist_users"
@@ -140,7 +140,7 @@
               alt="Home Icon"
               class="w-6 h-6"
             />
-            <span>ตารางแอ็ดมิน</span>
+            <span>ตารางแอดมิน</span>
           </NuxtLink>
         </nav>
       </div>

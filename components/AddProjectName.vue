@@ -17,26 +17,26 @@
         <form @submit.prevent="handleSubmit">
           <div class="mb-4">
             <label for="projectName" class="block text-sm font-bold mb-2"
-              >ชื่อโปรเจ็ค :</label
+              >ชื่อโปรเจค :</label
             >
             <input
               id="projectName"
               v-model="projectName"
-              class="w-full p-2 border bg-[#8D8D8D] rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full p-2 border bg-[#8D8D8D] rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div class="flex justify-end gap-2">
             <button
               type="button"
-              class="py-2 px-6 bg-[#8D8D8D] text-white rounded hover:bg-gray-600"
+              class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
               @click="closePopup"
             >
               ยกเลิก
             </button>
             <button
               type="submit"
-              class="py-2 px-8 bg-[#009C12] text-white rounded hover:bg-[#268327]"
+              class="py-2 px-10 bg-[#009C12] text-white rounded-[8px] hover:bg-[#268327]"
             >
               บันทึก
             </button>
@@ -48,13 +48,13 @@
         v-else
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
       >
-      <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded">
-        <h2 class="text-2xl font-bold text-white mb-4">เพิ่มโปรเจ็คสำเร็จ!</h2>
+      <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-[15px]">
+        <h2 class="text-4xl font-bold text-white mb-4">เพิ่มโปรเจคสำเร็จ!</h2>
         <div class="flex justify-center items-center mb-4">
           <img src="assets/images/Group 41.png" alt="" class="w-20 h-20 mb-4" />
         </div>
         <button
-          class="py-2 mb-4 px-6 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-blue-600"
+          class="py-2 mb-4 px-12 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px] hover:bg-blue-600"
           @click="closePopup"
         >
           ตกลง
@@ -89,7 +89,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    // เรียก API เพื่อเพิ่มโปรเจ็ค
+    // เรียก API เพื่อเพิ่มโปรเจค
     const response = await fetch(
       `http://127.0.0.1:8000/black-list-user/back-end/add-project-list?project_name=${encodeURIComponent(
         projectName.value
@@ -106,10 +106,10 @@ const handleSubmit = async () => {
 
     if (response.ok) {
       const result = await response.json();
-      console.log("เพิ่มโปรเจ็คสำเร็จ:", result);
+      console.log("เพิ่มโปรเจคสำเร็จ:", result);
       isSubmitted.value = true;
 
-      // แจ้งให้หน้าหลักรู้ว่ามีการเพิ่มโปรเจ็คสำเร็จ
+      // แจ้งให้หน้าหลักรู้ว่ามีการเพิ่มโปรเจคสำเร็จ
       emit("project-added", projectName.value);
     } else {
       const errorResult = await response.json();

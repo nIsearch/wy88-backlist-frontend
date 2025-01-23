@@ -2,7 +2,7 @@
   <div class="bg-[#252525] shadow py-4">
     <div class="container">
       <div class="mb-6 rounded-md">
-        <h2 class="text-2xl font-bold text-white">ตารางโปรเจ็ค</h2>
+        <h2 class="text-2xl font-bold text-white">ตารางโปรเจค</h2>
         <p class="text-[#ED9200]">หน้าแรก</p>
       </div>
     </div>
@@ -11,14 +11,18 @@
     <div class="content">
       <div class="py-4 px-4 rounded-lg text-white">
         <div class="p-4">
-          <h3 class="text-center text-white">ตารางจัดการข้อมูลโปรเจ็ค</h3>
+          <h3 class="text-center text-white">ตารางจัดการข้อมูลโปรเจค</h3>
           <div class="flex justify-end mt-4">
             <button
               @click="openAddPopup"
-              class="px-4 py-3 bg-[#009C12] text-white rounded-[15px] shadow hover:bg-blue-600 flex items-center justify-center gap-2"
+              class="px-4 py-1 bg-[#009C12] text-white rounded-[10px] shadow hover:bg-blue-600 flex items-center justify-center gap-2"
             >
-              <i class="ph-duotone ph-user-gear text-2xl"></i>
-              <span>เพิ่มโปรเจ็ค</span>
+              <img
+                src="assets\images\image-gallery 1.png"
+                alt="Avatar"
+                class="w-8 h-8 rounded"
+              />
+              <span>เพิ่มโปรเจค</span>
             </button>
             <AddProjectName
               v-if="isAddPopupVisible"
@@ -29,29 +33,29 @@
           </div>
           <span class="text-lg">
             จัดการข้อมูล
-            <span class="text-lg text-[#ED9200]">โปรเจ็ค</span> ของพนักงาน
+            <span class="text-lg text-[#ED9200]">โปรเจค</span> ของพนักงาน
           </span>
         </div>
 
         <div class="flex items-center space-x-2 mb-6">
-        <div class="flex-grow">
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="ค้นหาผู้ใช้"
-              class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="search"
-            />
-            <span class="absolute right-2 top-2 text-white">
-              <img
-              src="assets\images\icon _input search.png"
-              alt="Home Icon"
-              class="w-6 h-6 mr-2"
-            />
-            </span>
+          <div class="flex-grow">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="ค้นหาผู้ใช้"
+                class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                v-model="search"
+              />
+              <span class="absolute right-2 top-2 text-white">
+                <img
+                  src="assets\images\icon _input search.png"
+                  alt="Home Icon"
+                  class="w-6 h-6 mr-2"
+                />
+              </span>
+            </div>
           </div>
         </div>
-      </div>
         <div class="overflow-x-auto rounded">
           <table class="table-auto w-full border-collapse">
             <thead
@@ -59,8 +63,8 @@
             >
               <tr>
                 <!--<th class="px-4 py-4 text-center border">id</th>-->
-                <th class="px-4 py-4 text-center rounded">เชื่อโปรเจ็ค</th>
-                <th class="px-4 py-4 text-center rounded">เพิ่มเติม</th>
+                <th class="px-4 py-3 text-center rounded">เชื่อโปรเจค</th>
+                <th class="px-4 py-3 text-center rounded">เพิ่มเติม</th>
               </tr>
             </thead>
             <tbody>
@@ -85,16 +89,20 @@
                     {{ user.id }}
                   </td>-->
 
-                <td class="px-4 py-4 text-center border">
+                <td class="px-4 py-2 text-center border">
                   {{ user.name }}
                 </td>
-                <td class="border px-6 py-4 text-center">
+                <td class="border px-6 py-2 text-center">
                   <div class="flex justify-center items-center">
                     <button
                       @click="openEditPopup(user)"
-                      class="py-2 px-4 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-yellow-700 flex items-center"
+                      class="py-2 px-10 lg:px-4 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-yellow-700 flex items-center"
                     >
-                      <i class="ph-duotone ph-pencil-line text-3xl"></i>
+                      <img
+                        src="assets\images\edit 1.png"
+                        alt="Avatar"
+                        class="w-6 h-5 mr-1"
+                      />
                       <span>แก้ไข</span>
                     </button>
                     <EditProjectName
@@ -104,9 +112,13 @@
                     />
                     <button
                       @click="openDeletePopup(user)"
-                      class="py-2 px-4 bg-[#BA0101] text-white rounded hover:bg-red-700 ml-2 flex items-center"
+                      class="py-2 px-10 lg:px-4 bg-[#BA0101] text-white rounded hover:bg-red-700 ml-2 flex items-center"
                     >
-                      <i class="ph-duotone ph-trash text-3xl"></i>
+                      <img
+                        src="assets\images\bin 3.png"
+                        alt="Avatar"
+                        class="w-6 h-5 mr-2"
+                      />
                       ลบ
                     </button>
                   </div>
@@ -128,30 +140,34 @@
         @click.self="cancelDelete"
       >
         <div
-          class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded"
+          class="text-center w-[350px] mx-auto bg-[#252525] p-6 rounded-[15px]"
         >
           <template v-if="deleteState === 'confirm'">
             <!-- แสดง Popup ยืนยันการลบ -->
-            <h2 class="text-xl font-bold mb-4 text-white">ยืนยันการลบ</h2>
+            <h2 class="text-4xl font-bold mb-2 text-white">ยืนยันการลบ</h2>
             <p class="mb-6 text-white">
-              คุณต้องการลบโปรเจ็ค
+              คุณต้องการลบโปรเจค
               <span class="font-semibold text-red-600">{{
                 projectToDelete.name
               }}</span>
               ใช่หรือไม่?
             </p>
             <div class="flex justify-center items-center mb-4">
-          <img src="assets\images\bin 1.png" alt="" class="w-20 h-20 mb-4" />
-        </div>
-            <div class="flex justify-center gap-4">
+              <img
+                src="assets\images\bin 1.png"
+                alt=""
+                class="w-20 h-20 mb-4"
+              />
+            </div>
+            <div class="flex justify-center gap-4 pb-4">
               <button
-                class="py-2 px-8 bg-gray-300 rounded hover:bg-gray-400"
+                class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
                 @click="cancelDelete"
               >
                 ยกเลิก
               </button>
               <button
-                class="py-2 px-8 bg-[#BA0101] text-white rounded hover:bg-red-700"
+                class="py-2 px-10 bg-[#BA0101] text-white rounded-[8px] hover:bg-red-700"
                 @click="confirmDelete"
               >
                 ยืนยัน
@@ -161,21 +177,23 @@
 
           <template v-else-if="deleteState === 'success'">
             <!-- แสดงข้อความสำเร็จ -->
-            <h2 class="text-2xl font-bold text-white mb-4">
-              ลบโปรเจ็คสำเร็จ!
-            </h2>
+            <h2 class="text-4xl font-bold text-white mb-4">ลบโปรเจคสำเร็จ</h2>
 
             <p class="mb-6 text-white">
-              ลบข้อมูลโปรเจ็ค
+              ลบข้อมูลโปรเจค
               <span class="text-red-600">{{ deleteSuccessMessage }}</span>
-              สำเร็จ
+              สำเร็จ!!
             </p>
             <div class="flex justify-center items-center mb-4">
-          <img src="assets\images\Bin_Success_Icon.png" alt="" class="w-20 h-20 mb-4" />
-        </div>
+              <img
+                src="assets\images\Bin_Success_Icon.png"
+                alt=""
+                class="w-20 h-20 mb-4"
+              />
+            </div>
             <div class="flex justify-center mb-6">
               <button
-                class="py-3 px-10 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-blue-700"
+                class="py-2 px-10 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px] hover:bg-blue-700"
                 @click="cancelDelete"
               >
                 ตกลง
@@ -191,7 +209,7 @@
       <button
         @click="goToPage(1)"
         :disabled="currentPage === 1"
-        class="py-2 px-4 rounded border border-gray-300 bg-[#8A8A8A] hover:bg-purple-100"
+        class="py-2 px-4 rounded border border-gray-300 bg-[#8A8a8A] hover:bg-purple-100"
         :class="{ 'cursor-not-allowed opacity-50': currentPage === 1 }"
       >
         &lt;&lt;
@@ -228,6 +246,15 @@ import axios from "axios";
 import EditProjectName from "@/components/EditProjectName.vue";
 import AddProjectName from "@/components/AddProjectName.vue";
 
+useHead({
+    title: "ตารางจัดการโปรเจค",
+    meta: [
+      { name: "robots", content: "noindex, nofollow" },
+      { name: "keywords", content: "" },
+      { name: "description", content: "ตารางจัดการโปรเจค" },
+    ],
+  });
+
 axios.interceptors.response.use(
   (response) => response, // หากไม่มีปัญหา
   (error) => {
@@ -260,7 +287,7 @@ const errorMessage = ref("");
 
 // Pagination
 const currentPage = ref(1); // หน้าเริ่มต้น
-const itemsPerPage = 5; // จำนวนรายการต่อหน้า
+const itemsPerPage = 10; // จำนวนรายการต่อหน้า
 const totalPages = computed(() =>
   Math.ceil(filteredUsers.value.length / itemsPerPage)
 );
@@ -340,10 +367,10 @@ onMounted(() => {
 // ฟังชั่นแก้ไข
 
 const isPopupVisible = ref(false); // สถานะแสดง Popup
-const projectToEdit = ref(null); // เก็บข้อมูลโปรเจ็คที่ต้องการแก้ไข
+const projectToEdit = ref(null); // เก็บข้อมูลโปรเจคที่ต้องการแก้ไข
 
 const openEditPopup = (project) => {
-  projectToEdit.value = project; // เก็บข้อมูลโปรเจ็คที่เลือก
+  projectToEdit.value = project; // เก็บข้อมูลโปรเจคที่เลือก
   isPopupVisible.value = true; // เปิด Popup
 };
 
@@ -351,7 +378,7 @@ const openEditPopup = (project) => {
 
 const showDeletePopup = ref(false); // สถานะแสดง Popup
 const deleteState = ref("confirm"); // สถานะ Popup ('confirm' หรือ 'success')
-const projectToDelete = ref(null); // เก็บข้อมูลโปรเจ็คที่ต้องการลบ
+const projectToDelete = ref(null); // เก็บข้อมูลโปรเจคที่ต้องการลบ
 const deleteSuccessMessage = ref(""); // ข้อความสำเร็จ
 
 // เปิด Popup การลบ
@@ -387,7 +414,7 @@ const confirmDelete = async () => {
     );
 
     if (response.ok) {
-      deleteSuccessMessage.value = projectToDelete.value.name; // บันทึกชื่อโปรเจ็คที่ลบสำเร็จ
+      deleteSuccessMessage.value = projectToDelete.value.name; // บันทึกชื่อโปรเจคที่ลบสำเร็จ
       deleteState.value = "success"; // เปลี่ยนสถานะ Popup เป็นสำเร็จ
       // อัปเดตตาราง
       users.value = users.value.filter(
@@ -425,7 +452,7 @@ const closeAddPopup = () => {
 };
 
 const handleProjectAdded = (projectName) => {
-  console.log("โปรเจ็คที่เพิ่ม:", projectName);
+  console.log("โปรเจคที่เพิ่ม:", projectName);
   closeAddPopup();
 };
 </script>

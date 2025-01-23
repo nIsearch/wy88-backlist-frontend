@@ -23,7 +23,7 @@
             <input
               id="username"
               v-model="formData.username"
-              class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
+              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
               required
               placeholder="ชื่อผู้ใช้"
             />
@@ -35,15 +35,15 @@
             <input
               id="password"
               v-model="formData.password"
-              type="password"
-              class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
+              type="text"
+              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
               required
               placeholder="รหัสผ่าน"
             />
           </div>
           <div class="mb-4">
             <label class="block text-sm font-bold mb-2 text-left mt-10"
-              >โปรเจ็ค :</label
+              >โปรเจค :</label
             >
             <div v-if="isLoading" class="text-white">Loading...</div>
             <div v-else class="flex flex-wrap gap-4 text-white">
@@ -100,13 +100,13 @@
             <button
               @click="closePopup"
               type="button"
-              class="py-2 px-10 bg-gray-400 text-white rounded hover:bg-gray-600"
+              class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
             >
               ยกเลิก
             </button>
             <button
               type="submit"
-              class="py-2 px-10 bg-[#009C12] text-white rounded hover:bg-[#259e34]"
+              class="py-2 px-10 bg-[#009C12] text-white rounded-[10px] hover:bg-[#259e34]"
             >
               บันทึก
             </button>
@@ -118,21 +118,21 @@
         v-else
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
       >
-        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded">
-          <h2 class="text-white">เพิ่มพนักงาน สำเร็จ!</h2>
-          <h2 class="text-2xl font-bold mb-6 text-white">
-            การเพิ่มพนักงานสำเร็จ!
+        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded-[15px]">
+          <h2 class="text-white">เพิ่มพนักงานสำเร็จ</h2>
+          <h2 class="text-lg font-bold mb-6 text-white">
+            การเพิ่มพนักงานสำเร็จ
           </h2>
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets\images\Group 41.png"
+              src="assets\images\Admember_Success.png"
               alt=""
               class="w-20 h-20 mb-4"
             />
           </div>
           <div class="text-center">
             <button
-              class="py-3 px-8 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-blue-600"
+              class="py-2 px-10 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-600"
               @click="closePopup"
             >
               ตกลง

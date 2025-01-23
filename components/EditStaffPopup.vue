@@ -12,9 +12,9 @@
         v-if="isSuccess"
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
       >
-        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded">
+        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded-[15px]">
           <h2 class="text-white">แก้ไขพนักงาน สำเร็จ</h2>
-          <h2 class="text-2xl font-bold mb-6 text-white">
+          <h2 class="text-lg font-bold mb-6 text-white">
             การแก้ไขพนักงานชื่อ
             <span class="font-semibold text-red-600">{{
               formData.username
@@ -23,14 +23,14 @@
           </h2>
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets/images/Group 41.png"
+              src="assets\images\Admember_Success.png"
               alt=""
               class="w-20 h-20 mb-4"
             />
           </div>
           <div class="text-center">
             <button
-              class="py-3 px-8 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-blue-600"
+              class="py-2 px-10 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-600"
               @click="closePopup"
             >
               ตกลง
@@ -61,7 +61,7 @@
             <input
               id="username"
               v-model="formData.username"
-              class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
+              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
             />
           </div>
           <div class="mb-4 text-left">
@@ -71,12 +71,12 @@
             <input
               id="pwd"
               v-model="formData.pwd"
-              class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
+              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
             />
           </div>
           <div class="mb-4">
             <label class="block text-sm font-bold mb-2 text-left mt-10"
-              >โปรเจ็ค :</label
+              >โปรเจค :</label
             >
             <div v-if="isLoading" class="text-white">Loading...</div>
             <div v-else class="flex flex-wrap gap-4 text-white">
@@ -127,14 +127,14 @@
           <div class="flex justify-center gap-4 mt-8">
             <button
               type="button"
-              class="px-10 py-2 bg-gray-400 text-white rounded hover:bg-gray-600"
+              class="px-10 py-2 bg-[#8A8A8A] text-white rounded-[10px] hover:bg-gray-600"
               @click="cancelEdit"
             >
               ยกเลิก
             </button>
             <button
               type="submit"
-              class="px-10 py-2 bg-[#009C12] text-white rounded hover:bg-[#1d7527]"
+              class="px-10 py-2 bg-[#009C12] text-white rounded-[10px] hover:bg-[#1d7527]"
             >
               บันทึก
             </button>
@@ -166,7 +166,7 @@ const isLoading = ref(true);
 const isSuccess = ref(false);
 const projects = ref([]);
 
-// ดึงข้อมูลโปรเจ็ค
+// ดึงข้อมูลโปรเจค
 const fetchProjects = async () => {
   try {
     const response = await fetch(
@@ -180,7 +180,7 @@ const fetchProjects = async () => {
     syncSelectedProjects();
   } catch (error) {
     console.error(error);
-    alert("เกิดข้อผิดพลาดในการดึงข้อมูลโปรเจ็ค");
+    alert("เกิดข้อผิดพลาดในการดึงข้อมูลโปรเจค");
   } finally {
     isLoading.value = false;
   }

@@ -7,8 +7,6 @@
         </h2>
         <ol class="flex space-x-2 text-sm text-white p-0">
           <li class="text-[#ED9200] text-lg">หน้าแรก</li>
-          <li class="text-lg">&gt;</li>
-          <li class="text-lg">ค้นหาผู้ใช้ที่ถูกแบน</li>
         </ol>
       </div>
     </div>
@@ -21,13 +19,13 @@
           <div class="flex justify-end mt-4">
             <button
               @click="isPopupVisible = true"
-              class="px-4 py-2 bg-[#009C12] text-white rounded-lg shadow hover:bg-blue-600 flex items-center justify-center gap-2"
+              class="px-4 py-1 bg-[#009C12] text-white rounded-lg shadow hover:bg-[#1c6e26] flex items-center justify-center gap-2"
             >
-            <img
-                      src="assets\images\user 1.png"
-                      alt="Avatar"
-                      class="w-8 h-8 rounded "
-                    />
+              <img
+                src="assets\images\user 1.png"
+                alt="Avatar"
+                class="w-8 h-8 rounded"
+              />
               <span class="text-xl">เพิ่มพนักงาน</span>
             </button>
             <AddStaffPopup
@@ -67,11 +65,11 @@
               class="bg-gradient-to-b from-gray-700 to-black text-white text-lg rounded-full"
             >
               <tr>
-                <th class="px-4 py-4 text-center rounded">ชื่อผู้ใช้</th>
-                <th class="px-4 py-4 text-center">รหัสผ่าน</th>
-                <th class="px-4 py-4 text-center">บทบาท</th>
-                <th class="px-4 py-4 text-center">ชื่อโปรเจ็ค</th>
-                <th class="px-4 py-4 text-center rounded">เพิ่มเติม</th>
+                <th class="px-4 py-3 text-center rounded">ชื่อผู้ใช้</th>
+                <th class="px-4 py-3 text-center">รหัสผ่าน</th>
+                <th class="px-4 py-3 text-center">บทบาท</th>
+                <th class="px-4 py-3 text-center">ชื่อโปรเจค</th>
+                <th class="px-4 py-3 text-center rounded">เพิ่มเติม</th>
               </tr>
             </thead>
             <tbody>
@@ -89,27 +87,27 @@
                 </td>
               </tr>
               <tr v-for="user in paginatedUsers" :key="user.id">
-                <td class="px-4 py-4 text-center border">
+                <td class="px-4 py-2 text-center border">
                   {{ user.username }}
                 </td>
-                <td class="px-4 py-4 text-center border">{{ user.pwd }}</td>
-                <td class="px-4 py-4 text-center border">
+                <td class="px-4 py-2 text-center border">{{ user.pwd }}</td>
+                <td class="px-4 py-2 text-center border">
                   {{ user.full_name }}
                 </td>
-                <td class="px-4 py-4 text-center border">
+                <td class="px-4 py-2 text-center border">
                   {{ user.project_name }}
                 </td>
-                <td class="border px-6 py-4 text-center">
+                <td class="border px-6 py-2 text-center">
                   <div class="flex justify-center items-center">
                     <button
-                      class="py-2 px-4 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-yellow-700 flex items-center"
+                      class="py-2 px-10 lg:px-4 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-yellow-700 flex items-center"
                       @click="openEditPopup(user)"
                     >
-                    <img
-                      src="assets\images\edit 1.png"
-                      alt="Avatar"
-                      class="w-6 h-5 rounded mr-1"
-                    />
+                      <img
+                        src="assets\images\edit 1.png"
+                        alt="Avatar"
+                        class="w-6 h-5 mr-1"
+                      />
                       <span>แก้ไข</span>
                     </button>
                     <EditStaffPopup
@@ -122,14 +120,14 @@
                     />
 
                     <button
-                      class="py-2 px-4 bg-[#BA0101] text-white rounded hover:bg-red-700 ml-2 flex items-center"
+                      class="py-2 px-10 lg:px-4 bg-[#BA0101] text-white rounded hover:bg-red-700 ml-2 flex items-center"
                       @click="openDeletePopup(user.id, user.username)"
                     >
-                    <img
-                      src="assets\images\bin 3.png"
-                      alt="Avatar"
-                      class="w-6 h-5 rounded mr-2"
-                    />
+                      <img
+                        src="assets\images\bin 3.png"
+                        alt="Avatar"
+                        class="w-6 h-5 mr-2"
+                      />
                       ลบ
                     </button>
                     <DeleteConfirmationPopup
@@ -199,6 +197,15 @@ import AddStaffPopup from "@/components/AddStaffPopup.vue";
 import DeleteConfirmationPopup from "@/components/DeleteConfirmationPopup.vue"; // ตรวจสอบเส้นทางให้ถูกต้อง
 import EditStaffPopup from "@/components/EditStaffPopup.vue";
 
+useHead({
+    title: "ตารางจัดการแอดมิน",
+    meta: [
+      { name: "robots", content: "noindex, nofollow" },
+      { name: "keywords", content: "" },
+      { name: "description", content: "ตารางจัดการแอดมิน" },
+    ],
+  });
+
 axios.interceptors.response.use(
   (response) => response, // หากไม่มีปัญหา
   (error) => {
@@ -231,7 +238,7 @@ const errorMessage = ref("");
 
 // Pagination
 const currentPage = ref(1); // หน้าเริ่มต้น
-const itemsPerPage = 5; // จำนวนรายการต่อหน้า
+const itemsPerPage = 10; // จำนวนรายการต่อหน้า
 const totalPages = computed(() =>
   Math.ceil(filteredUsers.value.length / itemsPerPage)
 );

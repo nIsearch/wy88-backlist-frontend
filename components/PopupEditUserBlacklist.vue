@@ -62,17 +62,16 @@
             </div>
           </div>
           <div class="text-end mt-8">
-
             <button
               type="button"
-              class=" px-4 py-2 mr-4 bg-gray-500 text-white rounded hover:bg-gray-700"
+              class="px-8 py-2 mr-4 bg-[#8a8a8a] text-white rounded hover:bg-gray-700"
               @click="handleClose"
             >
               ยกเลิก
             </button>
             <button
               type="submit"
-              class=" px-4 py-2 bg-[#009C12] text-white rounded hover:bg-[#1c8b29]"
+              class="px-8 py-2 bg-[#009C12] text-white rounded hover:bg-[#1c8b29]"
               :disabled="isLoading"
             >
               <span v-if="isLoading">กำลังบันทึก...</span>
@@ -87,25 +86,25 @@
   <!-- Popup แสดงข้อความสำเร็จ -->
   <div
     v-if="isSuccessPopupVisible"
-    class="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
     role="dialog"
     aria-modal="true"
     @click.self="closeSuccessPopup"
   >
     <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-lg">
-      <h2 class=" font-semibold text-white mb-4">บันทึกข้อมูลสำเร็จ</h2>
+      <h2 class="font-semibold text-white mb-4">บันทึกข้อมูลสำเร็จ</h2>
       <div class="flex justify-center items-center mb-4">
-                        <img
-                          src="assets\images\check 1.png"
-                          alt="Cloud Icon"
-                          class="w-20 h-20 mb-4"
-                        />
-                      </div>
+        <img
+          src="assets\images\check 1.png"
+          alt="Cloud Icon"
+          class="w-20 h-20 mb-4"
+        />
+      </div>
       <button
-        class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded hover:bg-blue-700"
+        class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-700"
         @click="closeSuccessPopup"
       >
-        ตกลง
+        ปิด
       </button>
     </div>
   </div>
@@ -216,7 +215,7 @@ onMounted(fetchStatusOptions);
 </script>
 <style scoped>
 label.input-group-text {
-    background: #0e0e0e;
-    color: white;
+  background: #0e0e0e;
+  color: white;
 }
 </style>
