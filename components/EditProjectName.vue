@@ -76,7 +76,7 @@ const closeSuccessPopup = () => {
 
 <template>
   <div
-    class="fixed inset-0 bg-black  bg-opacity-30 z-50 flex justify-center items-center"
+    class="fixed inset-0 bg-black  bg-opacity-10 z-50 flex justify-center items-center"
     @click="handleOverlayClick"
   >
     <div class="bg-[#252525] p-6 rounded-[15px] mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3">
@@ -117,7 +117,7 @@ const closeSuccessPopup = () => {
   <!-- Popup สำเร็จ -->
   <div
     v-if="isSuccessPopupVisible"
-    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
+    class="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center rounded-[15px]"
   >
     <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-[15px]">
       <h2 class="text-2xl text-white mb-4">แก้ไขโปรเจคสำเร็จ</h2>

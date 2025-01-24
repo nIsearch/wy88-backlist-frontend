@@ -49,7 +49,7 @@
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
       >
       <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-[15px]">
-        <h2 class="text-4xl font-bold text-white mb-4">เพิ่มโปรเจคสำเร็จ!</h2>
+        <h2 class="text-4xl font-bold text-white mb-4">เพิ่มโปรเจคสำเร็จ</h2>
         <div class="flex justify-center items-center mb-4">
           <img src="assets/images/Group 41.png" alt="" class="w-20 h-20 mb-4" />
         </div>

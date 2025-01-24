@@ -15,7 +15,7 @@
           <div class="flex justify-end mt-4">
             <button
               @click="openAddPopup"
-              class="px-4 py-1 bg-[#009C12] text-lg text-white rounded-[8px] shadow hover:bg-blue-600 flex items-center justify-center gap-2"
+              class="px-4 py-1 bg-[#009C12] text-lg text-white rounded-[8px] shadow hover:bg-[#166820] flex items-center justify-center gap-2"
             >
               <img
                 src="assets\images\image-gallery 1.png"

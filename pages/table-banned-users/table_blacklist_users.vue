@@ -57,7 +57,7 @@
           <div class="w-full md:w-auto">
             <select
               v-model="selectedLevel"
-              class="w-full p-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#009C12]"
+              class="w-full p-2 text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-[#8A8A8A] bg-[#009C12]"
             >
               <option value="">เลือกสถานะ</option>
               <option value="ติดแบน">ติดแบน</option>
@@ -164,7 +164,7 @@
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
         @click.self="cancelDelete"
       >
-        <div class="text-center w-[360px] mx-auto bg-[#252525] py-10 rounded-lg">
+        <div class="text-center w-[360px] mx-auto bg-[#252525] py-10 rounded-[15px]">
           <template v-if="deleteState === 'confirm'">
             <!-- แสดง Popup ยืนยันการลบ -->
             <h2 class="text-white font-bold mb-4">ยืนยันการลบ</h2>
@@ -200,7 +200,7 @@
 
           <template v-else-if="deleteState === 'success'">
             <!-- แสดงข้อความสำเร็จ -->
-            <h2 class="text-white font-bold mb-4">ลบข้อมูลสำเร็จ</h2>
+            <h2 class="text-white font-bold mb-4">ลบข้อมูลผู้ใช้สำเร็จ</h2>
             <p class="mb-6 text-white">
               ลบผู้ใช้
               <span class="text-red-600">{{ deleteSuccessMessage }}</span

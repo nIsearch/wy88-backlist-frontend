@@ -45,7 +45,7 @@
             <div class="relative">
               <input
                 type="text"
-                placeholder="ค้นหาผู้ใช้"
+                placeholder="ค้นหาจากชื่อผู้ใช้"
                 class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                 v-model="search"
               />

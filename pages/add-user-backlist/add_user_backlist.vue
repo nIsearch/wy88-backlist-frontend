@@ -328,11 +328,11 @@ definePageMeta({
 });
 
 useHead({
-  title: "Black-List",
+  title: "เพิ่มผู้ใช้ที่โดนแบล็คลีส",
   meta: [
     { name: "robots", content: "noindex, nofollow" },
     { name: "keywords", content: "" },
-    { name: "description", content: "" },
+    { name: "description", content: "เพิ่มผู้ใช้ที่โดนแบล็คลีส" },
   ],
 });
 
