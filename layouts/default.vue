@@ -284,62 +284,6 @@
 
           <!-- Right Side Options -->
           <div class="flex items-center space-x-4 py-3">
-            <!-- Notification Dropdown 
-            <div class="relative">
-              <button
-                @click.stop="toggleNotifications"
-                class="relative text-gray-600 hover:text-gray-800"
-              >
-                <i class="ph-duotone ph-bell-simple-ringing text-5xl"></i>
-                <span
-                  class="absolute top-0 right-0 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-                >
-                  1
-                </span>
-              </button>
-              <div
-                v-if="isNotificationsOpen"
-                class="absolute right-0 pl-5 bg-white shadow-lg rounded-md mt-2 p-2 w-80 z-50"
-              >
-                <h5 class="font-semibold text-gray-800 mb-4 pl-10">
-                  การแจ้งเตือน
-                </h5>
-                <ul class="space-y-4">
-                  <li class="flex items-start">
-                    <img
-                      src="assets\images\user\avatar-1.jpg"
-                      alt="Avatar"
-                      class="w-10 h-10 rounded-full"
-                    />
-                    <div class="ml-4">
-                      <h6 class="text-sm font-semibold text-gray-800">
-                        ออกจากระบบทุกครั้งเมื่อไม่ได้ใช้งาน
-                      </h6>
-                      <p class="text-gray-600 text-sm">
-                        คำแนะนำจากระบบจัดการ Tiktok
-                      </p>
-                      <div class="flex space-x-2 mt-2">
-                        <span
-                          class="bg-blue-100 text-blue-600 px-2 py-1 rounded-lg text-xs"
-                          >เว็บดีไซต์</span
-                        >
-                        <span
-                          class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-lg text-xs"
-                          >หน้าแรก</span
-                        >
-                        <button
-                          @click="logout"
-                          class="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs"
-                        >
-                          ออกจากระบบ
-                        </button>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>-->
-
             <!-- User Profile Dropdown -->
             <div class="relative">
               <button

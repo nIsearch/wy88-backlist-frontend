@@ -16,7 +16,7 @@
           <div class="rounded-lg">
             <div class="p-4 py-5">
               <div class="py-10 text-white" >
-                <div class="px-10">
+                <div class="px-0 lg:px-10">
                   <h2 class="text-white text-center">
                     สามารถเพิ่มข้อมูลโดยการ อัพโหลดเป็นไฟล์
                   </h2>
@@ -34,7 +34,7 @@
                     <!-- ปุ่มเลือกไฟล์ -->
                     <label
                       for="fileInput"
-                      class="bg-gradient-to-b  from-[#Ed9200] to-[#FC6900] text-white px-10 py-3 rounded-full mr-4 cursor-pointer"
+                      class="bg-gradient-to-b  from-[#Ed9200] to-[#FC6900] text-white px-6 lg:px-10 py-3 rounded-full mr-2 lg:mr-4 cursor-pointer"
                       >เลือกไฟล์</label
                     >
                     <input
