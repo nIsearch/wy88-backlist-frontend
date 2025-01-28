@@ -1,75 +1,57 @@
 <template>
-  <div class="bg-[#2b2b2b] shadow py-4">
-    <div class="container">
-      <div class="mb-6 rounded-md">
-        <h2 class="text-2xl font-bold text-white">
-          ตารางข้อมูลผู้ใช้ (พนักงาน)
-        </h2>
-        <ol class="flex space-x-2 text-sm text-white p-0">
-          <li class="text-[#ED9200] text-lg">หน้าแรก</li>
-        </ol>
-      </div>
-    </div>
+  <div class="flex space-x-1 text-white">
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector1.png)] bg-cover bg-no-repeat pl-2 pr-[40px]"
+    >
+      TabelAddmin
+    </p>
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector2.png)] bg-contain bg-no-repeat pl-5 pr-[25px]"
+    >
+      <span class="text-[#990002]">Home </span> > Admin
+    </p>
   </div>
   <div class="container mx-auto p-4 text-white">
     <div class="content">
       <div class="py-4 px-4 rounded-lg">
         <div class="p-4">
-          <h2 class="text-center text-white">ตารางจัดการพนักงาน</h2>
-          <div class="flex justify-end mt-4">
-            <button
-              @click="isPopupVisible = true"
-              class="px-4 py-1 bg-[#009C12] text-white rounded-lg shadow hover:bg-[#1c6e26] flex items-center justify-center gap-2"
-            >
-              <img
-                src="assets\images\user 1.png"
-                alt="Avatar"
-                class="w-8 h-8 rounded"
-              />
-              <span class="text-xl">เพิ่มพนักงาน</span>
-            </button>
-            <AddStaffPopup
-              :isVisible="isPopupVisible"
-              @close="isPopupVisible = false"
-              @save="handleSave"
-            />
-          </div>
+          <h2 class="text-center text-white">Tabel Manage Admin</h2>
 
           <span class="text-lg">
-            จัดการข้อมูล
-            <span class="text-lg text-[#ED9200]">พนักงาน</span>
+            Tabel Manage
+            <span class="text-lg text-[#ED9200]">Admin</span>
           </span>
         </div>
-        <div class="flex items-center space-x-2 mb-6">
-          <div class="flex-grow">
-            <div class="relative">
-              <input
-                type="text"
-                placeholder="ค้นหาจากชื่อผู้ใช้"
-                class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                v-model="search"
-              />
-              <span class="absolute right-2 top-2 text-white">
-                <img
-                  src="assets\images\icon _input search.png"
-                  alt="Home Icon"
-                  class="w-6 h-6 mr-2"
-                />
-              </span>
+        <div class="flex items-center mb-4">
+          <main class="w-full">
+            <!-- Search Bar -->
+            <div
+              class="flex items-center mb-3 bg-[url(/images/Hud.png)] bg-cover lg:bg-contain bg-no-repeat pt-7 lg:pt-7 py-5"
+            >
+              <div class="flex-grow">
+                <div class="relative">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="w-full px-6 bg-transparent text-white"
+                    v-model="search"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          </main>
         </div>
         <div class="overflow-x-auto">
           <table class="table-auto w-full border-collapse">
             <thead
-              class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] text-white text-lg rounded-full"
+              class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] text-white text-lg"
             >
               <tr>
-                <th class="px-4 py-3 text-center rounded">ชื่อผู้ใช้</th>
-                <th class="px-4 py-3 text-center">รหัสผ่าน</th>
-                <th class="px-4 py-3 text-center">บทบาท</th>
-                <th class="px-4 py-3 text-center">ชื่อโปรเจค</th>
-                <th class="px-4 py-3 text-center rounded">เพิ่มเติม</th>
+                <th class="px-4 py-3 text-center">UserName</th>
+                <th class="px-4 py-3 text-center">Password</th>
+                <th class="px-4 py-3 text-center">UserRole</th>
+                <th class="px-4 py-3 text-center">Project</th>
+                <th class="px-4 py-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -108,7 +90,7 @@
                         alt="Avatar"
                         class="w-6 h-5 mr-1"
                       />
-                      <span>แก้ไข</span>
+                      <span>Edit</span>
                     </button>
                     <EditStaffPopup
                       v-if="isEditPopupVisible && selectedStaffId"
@@ -128,7 +110,7 @@
                         alt="Avatar"
                         class="w-6 h-5 mr-2"
                       />
-                      ลบ
+                      Delete
                     </button>
                     <DeleteConfirmationPopup
                       :isVisible="isDeletePopupVisible"
@@ -144,6 +126,24 @@
             </tbody>
           </table>
         </div>
+        <div class="flex justify-end mt-4">
+          <button
+            @click="isPopupVisible = true"
+            class="px-12 py-1 bg-[url(/images/BGBT.png)] bg-cover bg-no-repeat text-lg text-white hover:bg-[#166820] flex items-center justify-center gap-2"
+          >
+            <img
+              src="assets\images\user 1.png"
+              alt="Avatar"
+              class="w-8 h-8 rounded"
+            />
+            <span class="text-xl">AddAdmin</span>
+          </button>
+          <AddStaffPopup
+            :isVisible="isPopupVisible"
+            @close="isPopupVisible = false"
+            @save="handleSave"
+          />
+        </div>
       </div>
 
       <div v-if="errorMessage" class="mt-4 text-red-500">
@@ -151,25 +151,25 @@
       </div>
     </div>
   </div>
-  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] px-4 py-2">
-    <div class="flex justify-center items-center  gap-2">
+  <div class="bg-gradient-to-r from-black via-[#3a3a3a] to-black shadow-xl backdrop-blur-md w-full px-4 py-3">
+    <div class="flex justify-center items-center gap-1 flex-wrap">
       <button
         @click="goToPage(1)"
         :disabled="currentPage === 1"
-        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-1 px-3 rounded border-white hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
           'cursor-not-allowed opacity-50 ': currentPage === 1,
         }"
       >
-        &lt;&lt;
+      <i class="fas fa-caret-left text-3xl p-0 text-[#CA000A]"></i>
       </button>
       <button
         v-for="(page, index) in paginationRange"
         :key="index"
         @click="goToPage(page)"
-        class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-2 pb-3 md:pb-2 lg:pb-2 px-4 rounded  bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat  text-xs sm:text-sm"
         :class="{
-          'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
+          'bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat text-white':
             currentPage === page,
         }"
       >
@@ -178,13 +178,12 @@
       <button
         @click="goToPage(totalPages)"
         :disabled="currentPage === totalPages"
-        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-1 px-3 rounded  text-white  hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
-          'cursor-not-allowed opacity-50':
-            currentPage === totalPages,
+          'cursor-not-allowed opacity-50': currentPage === totalPages,
         }"
       >
-        &gt;&gt;
+      <i class="fas fa-caret-right text-3xl p-0 text-[#CA000A]"></i>
       </button>
     </div>
   </div>
@@ -198,13 +197,13 @@ import DeleteConfirmationPopup from "@/components/DeleteConfirmationPopup.vue"; 
 import EditStaffPopup from "@/components/EditStaffPopup.vue";
 
 useHead({
-    title: "ตารางจัดการแอดมิน",
-    meta: [
-      { name: "robots", content: "noindex, nofollow" },
-      { name: "keywords", content: "" },
-      { name: "description", content: "ตารางจัดการแอดมิน" },
-    ],
-  });
+  title: "Manage Admin",
+  meta: [
+    { name: "robots", content: "noindex, nofollow" },
+    { name: "keywords", content: "" },
+    { name: "description", content: "Manage Admin" },
+  ],
+});
 
 axios.interceptors.response.use(
   (response) => response, // หากไม่มีปัญหา
@@ -243,8 +242,22 @@ const totalPages = computed(() =>
   Math.ceil(filteredUsers.value.length / itemsPerPage)
 );
 const paginationRange = computed(() => {
+  const total = totalPages.value; // จำนวนหน้าทั้งหมด
+  const current = currentPage.value; // หน้าปัจจุบัน
+  const maxButtons = 6; // จำนวนปุ่มที่จะแสดง (รวม currentPage)
+
+  // คำนวณช่วงของหน้า
+  let startPage = Math.max(current - Math.floor(maxButtons / 2), 1);
+  let endPage = Math.min(startPage + maxButtons - 1, total);
+
+  // ปรับช่วงถ้าถึงขอบ
+  if (endPage - startPage + 1 < maxButtons) {
+    startPage = Math.max(endPage - maxButtons + 1, 1);
+  }
+
+  // สร้างช่วงของปุ่ม
   const range = [];
-  for (let i = 1; i <= totalPages.value; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     range.push(i);
   }
   return range;

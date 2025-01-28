@@ -79,31 +79,31 @@ const closeSuccessPopup = () => {
     class="fixed inset-0 bg-black  bg-opacity-10 z-50 flex justify-center items-center"
     @click="handleOverlayClick"
   >
-    <div class="bg-[#252525] p-6 rounded-[15px] mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3">
-      <h2 class="font-bold mb-4 text-white">แก้ไขโปรเจค</h2>
+    <div class="bg-[url(/images/b1.png)] bg-contain bg-no-repeat px-4 py-6 w-[750px]">
+      <h2 class="font-bold mb-4 text-white">EditProjectName</h2>
       <div>
-        <label class="block text-left mb-2">ชื่อโปรเจค:</label>
+        <label class="block text-left mb-2">ProjectName :</label>
         <input
           v-model="project.name"
           type="text"
-          class="w-full p-2 border rounded-lg bg-[#8D8D8D]"
+          class="w-full p-2 border border-[#EE1212] rounded-lg bg-[#000]"
         />
       </div>
       <div class="mt-4 flex justify-end gap-2">
         <button
-          class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
+          class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-red-900"
           @click="handleClose"
           :disabled="isSaving"
         >
-          ยกเลิก
+          Cencel
         </button>
         <button
-          class="py-2 px-10 bg-[#009C12] text-white rounded-[8px] hover:bg-[#268327]"
+          class="py-2 px-[67px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-red-900"
           @click="handleSave"
           :disabled="isSaving"
         >
-          <span v-if="isSaving">กำลังบันทึก...</span>
-          <span v-else>บันทึก</span>
+          
+          Save
         </button>
       </div>
       <div v-if="apiResponse" class="mt-4 text-sm text-center">
@@ -117,18 +117,18 @@ const closeSuccessPopup = () => {
   <!-- Popup สำเร็จ -->
   <div
     v-if="isSuccessPopupVisible"
-    class="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center rounded-[15px]"
+    class="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center"
   >
-    <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-[15px]">
-      <h2 class="text-2xl text-white mb-4">แก้ไขโปรเจคสำเร็จ</h2>
+    <div class="text-center w-[300px] mx-auto bg-[url(/images/bgpop.png)] bg-contain bg-no-repeat p-6">
+      <h2 class="text-2xl text-white mb-4">EditSuccessful</h2>
       <div class="flex justify-center items-center mb-4">
           <img src="assets\images\Edit_Success_Icon.png" alt="" class="w-20 h-20 mb-4" />
         </div>
       <button
-        class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px]"
+        class="py-2 mb-4 px-[71px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-red-900"
         @click="closeSuccessPopup"
       >
-        ตกลง
+        OK
       </button>
     </div>
   </div>

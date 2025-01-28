@@ -28,8 +28,8 @@ export default defineNuxtConfig({
   generate: {
     routes: [
       '/', // หน้าแรก
-      '/table-banned-users/table_blacklist_users',
-      '/table-admin/tabel_admin',
+      '/tabel-banned-users/tabel_blacklist_users',
+      '/tabel-admin/tabel_admin',
       '/tabel-project/tabel-project-name',
       '/login-page/login',
       '/add-user-backlist/add_user_backlist',

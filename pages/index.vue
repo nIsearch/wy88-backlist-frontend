@@ -1,5 +1,19 @@
 <template>
-  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] ">
+  <div class="flex space-x-1 text-white">
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector1.png)] bg-cover bg-no-repeat pl-2 pr-[40px]"
+    >
+      SearchUser
+    </p>
+
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector2.png)] bg-contain bg-no-repeat pl-5 pr-[25px]"
+    >
+      <span class="text-[#990002]">Home </span> > Search
+    </p>
+  </div>
+
+  <div class="">
     <!-- Popup Error -->
     <div
       v-if="showError"
@@ -9,45 +23,20 @@
       <span>{{ errorMessage }}</span>
     </div>
 
-    <div class="bg-[#2b2b2b] shadow py-4">
-      <!-- Header -->
-      <div class="">
-        <div class="container mx-auto">
-          <h1 class="text-2xl font-bold text-white">ค้นหาผู้ใช้ที่ถูกแบน</h1>
-        </div>
-      </div>
-
-      <!-- Breadcrumbs -->
-      <nav class="pl-8">
-        <div class=" mx-auto">
-          <ol class="flex space-x-2 text-sm text-white">
-            <li class="text-[#ED9200] text-lg">หน้าแรก</li>
-            <li class="text-lg">&gt;</li>
-            <li class="text-lg">ค้นหาผู้ใช้ที่ถูกแบน</li>
-          </ol>
-        </div>
-      </nav>
-    </div>
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-6">
       <!-- Search Bar -->
-      <div class="flex items-center space-x-2 mb-6">
+      <div
+        class="flex items-center space-x-2 mb-6 bg-[url(/images/Hud.png)] bg-cover lg:bg-contain bg-no-repeat pt-7 lg:pt-7 py-5"
+      >
         <div class="flex-grow">
           <div class="relative">
             <input
               type="text"
-              placeholder="ค้นหา"
-              class="w-full px-4 py-2 bg-[#8A8a8A] border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Search"
+              class="w-full px-6 bg-transparent text-white"
               v-model="searchTerm"
             />
-            <span class="absolute right-2 top-2 text-white">
-              <img
-                src="assets\images\icon _input search.png"
-                alt="Home Icon"
-                class="w-6 h-6 mr-2"
-              />
-            </span>
           </div>
         </div>
       </div>
@@ -55,39 +44,39 @@
       <!-- Contacts List -->
       <div
         v-if="paginatedContacts.length > 0"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 bg-black bg-opacity-40 z-50"
       >
         <div
           v-for="contact in paginatedContacts"
           :key="contact.id"
-          class="bg-white shadow-md rounded-lg overflow-hidden "
+          class="bg-transparent overflow-hidden"
         >
           <div
             :class="{
-              'border-2 border-red-600 bg-black text-white rounded-md':
+              'bg-[url(/images/cd.png)] bg-contain bg-center bg-no-repeat bg-transparent text-white rounded-md':
                 contact.status_name === 'ติดแบน',
-              'border-2 border-[#009C12] bg-black text-white rounded-md':
+              'bg-[url(/images/cd1.png)] bg-contain bg-center bg-no-repeat bg-transparent text-white rounded-md':
                 contact.status_name === 'ปลดแบน',
             }"
           >
             <h3
               :class="{
-                'bg-red-600 text-center text-xl text-white font-semibold py-2 rounded-t-md':
+                ' text-center text-xl text-white font-semibold py-2 rounded-t-md pt-3 md:pt-11 lg:pt-1 ':
                   contact.status_name === 'ติดแบน',
-                'bg-[#009C12] text-center text-xl text-white font-semibold py-2 rounded-t-md':
+                'text-center text-xl text-white font-semibold py-2 rounded-t-md pt-3 md:pt-11 lg:pt-1':
                   contact.status_name === 'ปลดแบน',
               }"
             >
-              ชื่อผู้ใช้ : {{ contact.username }}
+              User : {{ contact.username }}
             </h3>
-            <p class="text-l text-gray-300 mt-6 px-8">
-              รายละเอียด : {{ contact.detail }}
+            <p class="text-l text-gray-300 mt-4 pl-8 lg:pl-16">
+              Detail: {{ contact.detail }}
             </p>
-            <p class="text-l text-gray-300 px-8">
-              ข้อมูลเมื่อ : {{ contact.date }}
+            <p class="text-l text-gray-300 pl-8 lg:pl-16">
+              Date : {{ contact.date }}
             </p>
-            <p class="text-l text-gray-300 px-8 pb-6">
-              สถานะปัจจุบัน :
+            <p class="text-l text-gray-300 pl-8 lg:pl-16 pb-20">
+              Status :
               <span
                 :class="{
                   'bg-red-600 text-white px-2 py-1 rounded-full':
@@ -105,52 +94,54 @@
       <div v-else class="text-center text-gray-600">
         <p>ไม่พบข้อมูลในตาราง</p>
       </div>
-    </main>
-    <!-- Pagination -->
-    <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] px-4 py-2 ">
       <!-- Pagination -->
-      <div class="flex justify-center items-center gap-1 flex-wrap ">
-        <!-- ปุ่มหน้าแรก -->
-        <button
-          @click="goToPage(1)"
-          :disabled="currentPage === 1"
-          class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
-          :class="{ 'cursor-not-allowed  opacity-50': currentPage === 1 }"
-        >
-          &lt;&lt;
-        </button>
-
+      <div
+        class="bg-gradient-to-r from-black via-[#3a3a3a] to-black shadow-xl backdrop-blur-md w-full px-4 py-3"
+      >
         <!-- Pagination -->
-        <button
-          v-for="(page, index) in visiblePages"
-          :key="index"
-          @click="goToPage(page)"
-          class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
-          :class="{
-            'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
-              currentPage === page,
-          }"
-          v-if="page !== '...'"
-        >
-          {{ page }}
-        </button>
-        <span v-else class="py-2 px-3 text-gray-900 text-xs sm:text-sm"
-          >...</span
-        >
+        <div class="flex justify-center items-center gap-1 flex-wrap">
+          <!-- ปุ่มหน้าแรก -->
+          <button
+            @click="goToPage(1)"
+            :disabled="currentPage === 1"
+            class="py-1 px-3 rounded border-white hover:bg-[#616161] text-xs sm:text-sm"
+            :class="{ 'cursor-not-allowed  opacity-50': currentPage === 1 }"
+          >
+            <i class="fas fa-caret-left text-3xl p-0 text-[#CA000A]"></i>
+          </button>
 
-        <!-- ปุ่มหน้าสุดท้าย -->
-        <button
-          @click="goToPage(totalPages)"
-          :disabled="currentPage === totalPages"
-          class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
-          :class="{
-            'cursor-not-allowed opacity-50': currentPage === totalPages,
-          }"
-        >
-          &gt;&gt;
-        </button>
+          <!-- Pagination -->
+          <button
+            v-for="(page, index) in visiblePages"
+            :key="index"
+            @click="goToPage(page)"
+            class="py-2 pb-3 md:pb-2 lg:pb-2 px-4 rounded bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat text-xs sm:text-sm"
+            :class="{
+              'bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat text-white':
+                currentPage === page,
+            }"
+            v-if="page !== '...'"
+          >
+            {{ page }}
+          </button>
+          <span v-else class="py-2 px-3 text-gray-900 text-xs sm:text-sm"
+            >...</span
+          >
+
+          <!-- ปุ่มหน้าสุดท้าย -->
+          <button
+            @click="goToPage(totalPages)"
+            :disabled="currentPage === totalPages"
+            class="py-1 px-3 rounded text-white hover:bg-[#616161] text-xs sm:text-sm"
+            :class="{
+              'cursor-not-allowed opacity-50': currentPage === totalPages,
+            }"
+          >
+            <i class="fas fa-caret-right text-3xl p-0 text-[#CA000A]"></i>
+          </button>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -188,11 +179,11 @@ export default {
   },
   setup() {
     useHead({
-      title: "ค้นหาผู้ใช้ที่โดนแบล็คลีส",
+      title: "SearchUser",
       meta: [
         { name: "robots", content: "noindex, nofollow" },
         { name: "keywords", content: "" },
-        { name: "description", content: "ค้นหาผู้ใช้ที่โดนแบล็คลีส" },
+        { name: "description", content: "SearchUser" },
       ],
     });
     const searchTerm = ref(""); // เก็บค่าจากช่องค้นหา

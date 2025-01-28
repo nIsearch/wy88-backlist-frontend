@@ -1,11 +1,16 @@
 <template>
-  <div class="bg-[#2b2b2b] shadow pt-4 py-3">
-    <div class="container">
-      <div class="mb-6 rounded-md">
-        <h2 class="text-2xl font-bold text-white">เพิ่มข้อมูลผู้ใช้แบล็คลีส</h2>
-        <p class="text-[#ED9200] text-lg">หน้าแรก</p>
-      </div>
-    </div>
+  <div class="flex space-x-1 text-white">
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector1.png)] bg-cover bg-no-repeat pl-2 pr-[40px]"
+    >
+      AddUserName
+    </p>
+
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector2.png)] bg-contain bg-no-repeat pl-5 pr-[25px]"
+    >
+      <span class="text-[#990002]">Home </span> > AddUser
+    </p>
   </div>
   <div class="container mx-auto p-4">
     <div class="content">
@@ -14,15 +19,15 @@
         <!-- [ sample-page ] start -->
         <div class="col-span-1">
           <div class="rounded-lg">
-            <div class="p-4 py-5">
-              <div class="py-10 text-white" >
+            <div class="p-4">
+              <div class="py-10 text-white">
                 <div class="px-0 lg:px-10">
                   <h2 class="text-white text-center">
-                    สามารถเพิ่มข้อมูลโดยการ อัพโหลดเป็นไฟล์
+                    Users can be added via file upload.
                   </h2>
                   <p class="text-2xl">
-                    สามารถอักโหลดเป็นไฟล์
-                    <code class="text-2xl text-[#ED9200]">Excel</code> เท่านั้น
+                    Can only be uploaded as an
+                    <code class="text-2xl text-[#ED9200]">Excel</code> file.
                   </p>
                   <!-- ฟอร์มอัปโหลดไฟล์ -->
                   <!-- ฟอร์มอัปโหลดไฟล์ -->
@@ -34,8 +39,9 @@
                     <!-- ปุ่มเลือกไฟล์ -->
                     <label
                       for="fileInput"
-                      class="bg-gradient-to-b  from-[#Ed9200] to-[#FC6900] text-white px-6 lg:px-10 py-3 rounded-full mr-2 lg:mr-4 cursor-pointer"
-                      >เลือกไฟล์</label
+                      class="bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white px-5 lg:px-[50px] hover:bg-red-800 py-2 mr-2 lg:mr-4 cursor-pointer"
+                    >
+                      Select File</label
                     >
                     <input
                       id="fileInput"
@@ -49,20 +55,20 @@
                     <!-- แสดงชื่อไฟล์ -->
                     <span
                       v-if="uploadedFileName"
-                      class="flex-grow bg-[#8A8A8A] text-white px-4 py-3 rounded-l-full"
+                      class="flex-grow bg-[url(/images/Hud.png)] bg-contain bg-no-repeat text-white px-6 py-4"
                       >{{ uploadedFileName }}</span
                     >
                     <span
                       v-else
-                      class="flex-grow bg-[#8A8A8A] text-white px-4 py-3 rounded-l-full"
-                      >ไม่ได้เลือกไฟล์</span
+                      class="flex-grow bg-[url(/images/Hud.png)] bg-contain bg-no-repeat text-white px-6 py-4"
+                      >File not selected</span
                     >
                     <!-- ปุ่มบันทึก -->
                     <button
                       type="submit"
-                      class="bg-[#009C12] text-white px-6 py-3 rounded-r-full"
+                      class="bg-[url(/images/Cc.png)] ml-2 bg-cover bg-no-repeat text-white px-[59px] hover:bg-red-700 py-2"
                     >
-                      บันทึกข้อมูล
+                      Upload
                     </button>
                   </form>
 
@@ -72,11 +78,13 @@
                     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
                   >
                     <div
-                      class="bg-[#252525] px-10 py-6 rounded-lg shadow-lg text-center"
+                      class="bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat px-4 py-6 w-[470px] mx-auto border-[2px] border-red-700"
                     >
-                      <h2 class="text-white font-bold mt-4">ยืนยันการอัพโหลดไฟล์</h2>
-                      <p class="text-[#009C12] mt-2">
-                        ไฟล์: {{ uploadedFileName }}
+                      <h2 class="text-white text-center font-bold mt-4">
+                        Confirm file upload
+                      </h2>
+                      <p class="text-[#009C12] text-center mt-2">
+                        File Name: {{ uploadedFileName }}
                       </p>
                       <div class="flex justify-center items-center mb-4">
                         <img
@@ -85,18 +93,18 @@
                           class="w-20 h-20 mb-4"
                         />
                       </div>
-                      <div class="flex justify-center mt-4 gap-2  mb-4">
+                      <div class="flex justify-center mt-4 gap-2 mb-4">
                         <button
-                          class="px-10 py-2 bg-[#8A8A8A] text-white rounded-lg"
+                          class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white hover:bg-blue-600"
                           @click="cancelUpload"
                         >
-                          ยกเลิก
+                          Cansel
                         </button>
                         <button
-                          class="px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg"
+                          class="py-2 px-[71px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white hover:bg-blue-600"
                           @click="confirmUpload"
                         >
-                          ตกลง
+                          OK
                         </button>
                       </div>
                     </div>
@@ -105,19 +113,14 @@
               </div>
 
               <div
-                class="container text-white"
-                style="
-                  background-color: #252525;
-                  padding-top: 50px;
-                  border-radius: 15px;
-                "
+                class="container text-white bg-[url(/images/b2.png)] bg-cover bg-no-repeat py-8 border-2 border-red-900"
               >
-                <div class="px-5  pb-2">
-                  <h2 class="text-white text-center">ฟอร์มแบบกรอกข้อมูล</h2>
+                <div class="px-5 pb-2">
+                  <h2 class="text-white text-center">Fill out the form</h2>
                   <span class="text-2xl text-white">
-                    ฟอร์มกรอกข้อมูล
+                    Add User
 
-                    <span class="text-[#ED9200]">ผู้ใช้</span>
+                    <span class="text-[#ED9200]">Blaclist</span>
                   </span>
                 </div>
                 <div class="text-white px-5">
@@ -129,20 +132,23 @@
                       >
                         <div class="form-group">
                           <div class="text-white">
-                            <label class="mb-1">ชื่อผู้ใช้ : </label>
+                            <label class="mb-1">UserName : </label>
                           </div>
 
                           <input
                             class="form-control"
-                            placeholder="กรอกชื่อผู้ใช้"
                             type="text"
                             v-model="usernameRef"
                             required
-                            style="background-color: #8a8a8a; color: #fff"
+                            style="
+                              background-color: #000;
+                              color: #fff;
+                              border-color: #ee1212;
+                            "
                           />
                         </div>
                         <div class="form-group">
-                          <label class="block mb-1">โปรเจค :</label>
+                          <label class="block mb-1">Project :</label>
                           <div v-if="isLoading" class="text-gray-500">
                             Loading...
                           </div>
@@ -150,7 +156,7 @@
                             <div
                               v-for="project in projects"
                               :key="project.id"
-                              class="flex items-center gap-2 bg-[#8A8A8A] pr-4 py-1 pl-1 rounded-lg shadow-sm transition duration-300"
+                              class="flex items-center gap-2 bg-transition pr-4 py-1 pl-1 rounded-lg shadow-sm transition duration-300"
                             >
                               <!-- Checkbox -->
                               <input
@@ -163,7 +169,7 @@
                               <!-- Label -->
                               <label
                                 :for="'project-' + project.id"
-                                class="flex items-center justify-center w-10 h-10 rounded-md border-2 transition duration-300 peer-checked:bg-[#009C12] peer-checked:border-[#009C12] bg-[#cbcbcb] border-gray-500"
+                                class="flex items-center justify-center w-10 h-10 rounded-md border-2 transition duration-300 peer-checked:bg-red-700 peer-checked:border-red-700 bg-[#000] border-red-700 hover:border-green-700"
                               >
                                 <!-- Icon -->
                                 <svg
@@ -190,24 +196,26 @@
                         </div>
 
                         <div class="form-group text-white">
-                          <label class="">รายละเอียด :</label>
+                          <label class="">Details :</label>
                           <textarea
                             class="form-control"
-                            placeholder="กรอกรายละเอียด"
                             rows="5"
                             v-model="detailRef"
                             required
-                            style="background-color: #8a8a8a; color: #fff"
+                            style="
+                              background-color: #000;
+                              color: #fff;
+                              border-color: #ee1212;
+                            "
                           ></textarea>
                         </div>
                         <div class="text-center">
                           <button
                             type="submit"
-                            class="py-3 px-10 rounded-lg bg-[#009C12] mb-4 text-center"
+                            class="bg-[url(/images/Cc.png)] ml-2 bg-cover bg-no-repeat text-white px-[66px] hover:bg-red-700 py-2 mb-4 text-center"
                             :disabled="isLoading"
                           >
-                            <span v-if="isLoading">กำลังบันทึก...</span>
-                            <span v-else>บันทึกข้อมูล</span>
+                            Save
                           </button>
                         </div>
                       </form>
@@ -215,10 +223,10 @@
                       <!-- Popup Modal -->
                       <div
                         v-if="showModal"
-                        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
+                        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
                       >
                         <div
-                          class="text-center w-[350px] mx-auto bg-[#252525] p-6 rounded-lg"
+                          class="bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat px-4 py-6 w-[470px] mx-auto border-[2px] border-red-700"
                         >
                           <div v-if="isLoading">
                             <div
@@ -245,41 +253,56 @@
                                 ></path>
                               </svg>
                               <span class="text-white font-bold"
-                                >กำลังส่งข้อมูล...</span
+                                >Sending data...</span
                               >
                             </div>
                           </div>
-                          <div v-else >
+                          <div v-else>
                             <div class="text-green-500 mb-4">
-                              <h2 class="text-white font-bold mt-4"
-                                >ส่งข้อมูลสำเร็จ</h2
-                              >
+                              <h2 class="text-white text-center font-bold mt-4">
+                                Saved successfully
+                              </h2>
                             </div>
-                            <span
+                            <div
                               v-if="!isFormSubmission"
-                              class="text-[#009C12] text-sm mt-2"
+                              class="text-center text-[#009C12] text-sm"
                             >
-                              ไฟล์ :
-                              <span class="font-bold">{{
-                                uploadedFileName
-                              }}</span>
-                            </span><br>
-                            <span
-                              class="text-[#009C12] text-sm whitespace-pre-wrap"
-                            >
-                              {{ apiResponse }}
-                            </span>
-                            <div class="flex justify-center items-center mb-4">
-                        <img
-                          src="assets\images\check 1.png"
-                          alt="Cloud Icon"
-                          class="w-20 h-20 "
-                        />
-                      </div>
+                              File:
 
-                            <button class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-lg" @click="closeModal">
-                              ตกลง
-                            </button>
+                              <span class="font-bold">
+                                {{ uploadedFileName }}
+                              </span>
+                            </div>
+
+                            <br />
+                            <div
+                              class="flex justify-center items-center h-full"
+                            >
+                              <span
+                                class="text-[#009C12] text-sm whitespace-pre-wrap text-center"
+                              >
+                                {{ apiResponse }}
+                              </span>
+                            </div>
+
+                            <div class="flex justify-center items-center mb-4">
+                              <img
+                                src="assets\images\check 1.png"
+                                alt="Cloud Icon"
+                                class="w-20 h-20"
+                              />
+                            </div>
+
+                            <div
+                              class="flex justify-center items-center h-full pb-3"
+                            >
+                              <button
+                                class="py-2 px-[71px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-red-600"
+                                @click="closeModal"
+                              >
+                                Ok
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -328,11 +351,11 @@ definePageMeta({
 });
 
 useHead({
-  title: "เพิ่มผู้ใช้ที่โดนแบล็คลีส",
+  title: "Add User Blacklist",
   meta: [
     { name: "robots", content: "noindex, nofollow" },
     { name: "keywords", content: "" },
-    { name: "description", content: "เพิ่มผู้ใช้ที่โดนแบล็คลีส" },
+    { name: "description", content: "AddUserBlacklist" },
   ],
 });
 
@@ -576,8 +599,6 @@ label {
 input[type="file"] {
   display: none;
 }
-
-
 
 input[type="checkbox"] {
   display: none; /* ซ่อน checkbox */

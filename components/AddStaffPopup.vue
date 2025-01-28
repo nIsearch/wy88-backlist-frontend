@@ -5,55 +5,55 @@
     @click.self="closePopup"
   >
     <div
-      class="bg-[#252525] p-6 rounded-lg mx-3 shadow-lg w-full md:w-2/3 lg:w-2/3"
+      class="bg-[url(/images/b2.png)] bg-cover bg-no-repeat px-4 py-6 w-[1000px] border-2 border-red-800"
     >
       <div v-if="!isSuccess">
         <div class="card-header text-center mb-4">
-          <h2 class="font-bold text-white">เพิ่มพนักงาน</h2>
+          <h2 class="font-bold text-white">AddAdmin</h2>
           <p class="text-white text-left">
-            ฟอร์มแก้ไขข้อมูล
-            <code class="text-lg text-[#ED9200]">พนักงาน</code>
+            Add
+            <code class="text-lg text-[#ED9200]">Admin</code>
           </p>
         </div>
         <form @submit.prevent="handleSubmit">
           <div class="mb-4">
             <label for="username" class="block text-sm font-bold mb-2"
-              >ชื่อผู้ใช้ :</label
+              >AdminName :</label
             >
             <input
               id="username"
               v-model="formData.username"
-              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
+              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-white"
               required
-              placeholder="ชื่อผู้ใช้"
+              
             />
           </div>
           <div class="mb-4">
             <label for="password" class="block text-sm font-bold mb-2"
-              >รหัสผ่าน :</label
+              >Password :</label
             >
             <input
               id="password"
               v-model="formData.password"
               type="text"
-              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D] placeholder-white"
+              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-white"
               required
-              placeholder="รหัสผ่าน"
+             
             />
           </div>
           <div class="mb-4">
-            <label class="block text-sm font-bold mb-2 text-left mt-10"
-              >โปรเจค :</label
+            <label class="block font-bold mb-2 text-left mt-10"
+              >Project :</label
             >
             <div v-if="isLoading" class="text-white">Loading...</div>
             <div v-else class="flex flex-wrap gap-4 text-white">
               <div
                 v-for="project in projects"
                 :key="project.id"
-                class="flex items-center gap-2 px-2 py-1 rounded-lg shadow-sm text-white hover:bg-[#8D8D8D] transition duration-300 cursor-pointer"
+                class="flex items-center  gap-2 px-2 py-1 rounded-lg shadow-sm text-white hover:bg-[#8D8D8D] transition duration-300 cursor-pointer"
                 :class="{
-                  'bg-[#8A8a8A]': selectedProjects.includes(project.id),
-                  'bg-[#8D8D8D] text-white': !selectedProjects.includes(
+                  'bg-transition ': selectedProjects.includes(project.id),
+                  'bg-transition text-white ': !selectedProjects.includes(
                     project.id
                   ),
                 }"
@@ -63,10 +63,10 @@
                 <div
                   class="flex items-center justify-center w-8 h-8 rounded-md border-2 transition duration-300"
                   :class="{
-                    'bg-[#009C12] border-[#009C12]': selectedProjects.includes(
+                    'bg-red-800 border-red-800': selectedProjects.includes(
                       project.id
                     ),
-                    'bg-[#cbcbcb] border-gray-500': !selectedProjects.includes(
+                    'bg-[#000] border-red-800': !selectedProjects.includes(
                       project.id
                     ),
                   }"
@@ -99,16 +99,16 @@
           <div class="flex justify-center gap-2 mt-8">
             <button
               @click="closePopup"
-              type="button"
-              class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
+              type="button" 
+              class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
             >
-              ยกเลิก
+              Cancel
             </button>
             <button
               type="submit"
-              class="py-2 px-10 bg-[#009C12] text-white rounded-[10px] hover:bg-[#259e34]"
+              class="py-2 px-[67px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
             >
-              บันทึก
+              Save
             </button>
           </div>
         </form>
@@ -118,10 +118,10 @@
         v-else
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
       >
-        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded-[15px]">
-          <h2 class="text-white">เพิ่มพนักงานสำเร็จ</h2>
+        <div class="bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat text-center px-4 py-6 w-[500px] border border-red-800">
+          <h2 class="text-white">Add Admin Successfully </h2>
           <h2 class="text-lg font-bold mb-6 text-white">
-            การเพิ่มพนักงานสำเร็จ
+            Add Successfully
           </h2>
           <div class="flex justify-center items-center mb-4">
             <img
@@ -132,10 +132,10 @@
           </div>
           <div class="text-center">
             <button
-              class="py-2 px-10 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-600"
+              class="py-2 mb-4 px-[72px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-blue-600"
               @click="closePopup"
             >
-              ตกลง
+              Ok
             </button>
           </div>
         </div>

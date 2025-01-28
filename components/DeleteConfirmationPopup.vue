@@ -1,18 +1,18 @@
 <template>
   <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
+    class="fixed inset-0 bg-black bg-opacity-20 z-50 flex justify-center items-center "
     v-if="isVisible"
     @click.self="closePopup"
   >
-    <div class="text-center w-[360px] mx-auto bg-[#252525] py-8 rounded-[15px]">
+    <div class="text-center w-[450px] mx-auto bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat p-12 border-2 border-red-800">
       <p v-if="!isSuccess" class="text-l font-bold text-center">
-        <span class="text-4xl text-center font-bold">ยืนยันการลบ</span> <br />
-        คุณต้องการลบพนักงาน <span class="font-semibold text-red-600">{{ username }}</span> ใช่หรือไม่?
+        <span class="text-4xl text-center font-bold">Confirm Deletion</span> <br />
+        Delete an Employee <span class="font-semibold text-red-600">{{ username }}</span> ?
       </p>
 
       <p v-else class="text-l font-bold mb-4 text-center">
-        <span class="text-4xl text-center font-bold mb-4 text-white">ลบพนักงานสำเร็จ</span> <br />
-        ลบพนักงานชื่อ <span class="font-semibold text-red-600">{{ username }}</span> สำเร็จ
+        <span class="text-4xl text-center font-bold mb-4 text-white"> Deleted Successfully</span> <br />
+        Delete Name <span class="font-semibold text-red-600">{{ username }}</span> Successfully
       </p>
 
       <!-- เงื่อนไขแสดงรูปภาพ -->
@@ -32,26 +32,26 @@
       </div>
 
       <div class="flex justify-center gap-2">
-        <button
+        <button 
           v-if="!isSuccess"
           @click="cancelDelete"
-          class="py-2 px-10 bg-[#8D8D8D] text-white rounded-[8px] hover:bg-gray-600"
+          class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
         >
-          ยกเลิก
+          Cancel
         </button>
         <button
           v-if="!isSuccess"
           @click="confirmDelete"
-          class="px-10 py-2 bg-[#BA0101] text-white rounded-[8px] hover:bg-[#771a1a]"
+          class="py-2 px-[71px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
         >
-          ยืนยัน
+          OK
         </button>
         <button
           v-else
           @click="closePopup"
-          class="px-10 py-2 mb-4 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px] hover:bg-blue-700"
+          class="py-2 px-[71px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-red-600"
         >
-          ตกลง
+          Ok
         </button>
       </div>
     </div>

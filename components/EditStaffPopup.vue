@@ -5,21 +5,21 @@
     @click.self="closePopup"
   >
     <div
-      class="bg-[#252525] p-6 rounded-lg mx-3 shadow-lg w-full md:w-2/3 lg:w-2/3"
+      class="bg-[url(/images/b2.png)] bg-cover bg-no-repeat px-4 py-6 w-[1000px] border-2 border-red-800"
     >
       <!-- แสดงข้อความสำเร็จ -->
       <div
         v-if="isSuccess"
-        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
       >
-        <div class="text-center w-[400px] mx-auto bg-[#252525] p-6 rounded-[15px]">
-          <h2 class="text-white">แก้ไขพนักงาน สำเร็จ</h2>
+        <div class="bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat px-4 py-6 w-[500px] border border-red-800">
+          <h2 class="text-white">Edited Successfully.</h2>
           <h2 class="text-lg font-bold mb-6 text-white">
-            การแก้ไขพนักงานชื่อ
+            Editing Name
             <span class="font-semibold text-red-600">{{
               formData.username
             }}</span
-            > สำเร็จ
+            > Successfully
           </h2>
           <div class="flex justify-center items-center mb-4">
             <img
@@ -30,10 +30,10 @@
           </div>
           <div class="text-center">
             <button
-              class="py-2 px-10 text-center mb-5 items-center bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-600"
+              class="py-2 mb-4 px-[72px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-blue-600"
               @click="closePopup"
             >
-              ตกลง
+              Ok
             </button>
           </div>
         </div>
@@ -41,42 +41,42 @@
 
       <!-- แสดงฟอร์มแก้ไข -->
       <div v-else>
-        <h2 class="text-2xl font-bold mb-4 text-center text-white">
-          แก้ไขข้อมูลพนักงาน :
+        <h2 class=" font-bold mb-4 text-center text-white">
+          Edit Admin information :
           <span class="font-semibold text-red-600">{{
             formData.username
           }}</span>
         </h2>
         <div class="text-left mb-2">
           <span class="text-xl">
-            ฟอร์มแก้ไขข้อมูล <span class="text-xl text-[#ED9200]">พนักงาน</span>
+            Edit information <span class="text-xl text-[#ED9200]">Admin</span>
           </span>
         </div>
 
         <form @submit.prevent="handleSubmit">
           <div class="mb-4 text-left">
             <label for="username" class="block font-bold text-lg mb-2"
-              >ชื่อผู้ใช้ :</label
+              >User :</label
             >
             <input
               id="username"
               v-model="formData.username"
-              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
+              class="w-full p-2 border rounded-[8px] focus:outline-none  border-red-800 bg-[#000]"
             />
           </div>
           <div class="mb-4 text-left">
             <label for="pwd" class="block font-bold text-lg mb-2"
-              >รหัสผ่าน :</label
+              >Password :</label
             >
             <input
               id="pwd"
               v-model="formData.pwd"
-              class="w-full p-2 border rounded-[8px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8D8D8D]"
+              class="w-full p-2 border rounded-[8px] focus:outline-none  border-red-800 bg-[#000]"
             />
           </div>
           <div class="mb-4">
-            <label class="block text-sm font-bold mb-2 text-left mt-10"
-              >โปรเจค :</label
+            <label class="block  font-bold mb-2 text-left mt-10"
+              >Project :</label
             >
             <div v-if="isLoading" class="text-white">Loading...</div>
             <div v-else class="flex flex-wrap gap-4 text-white">
@@ -85,8 +85,8 @@
                 :key="project.id"
                 class="flex items-center gap-2 px-2 py-1 rounded-lg shadow-sm text-white hover:bg-[#8D8D8D] transition duration-300 cursor-pointer"
                 :class="{
-                  'bg-[#8A8a8A]': formData.project_ids.includes(project.id),
-                  'bg-[#8D8D8D] text-white': !formData.project_ids.includes(
+                  'bg-transition': formData.project_ids.includes(project.id),
+                  'bg-transition text-white': !formData.project_ids.includes(
                     project.id
                   ),
                 }"
@@ -96,8 +96,8 @@
                 <div
                   class="flex items-center justify-center w-8 h-8 rounded-md border-2 transition duration-300"
                   :class="{
-                    'bg-[#009C12] border-[#009C12]': formData.project_ids.includes(project.id),
-                    'bg-[#cbcbcb] border-gray-500': !formData.project_ids.includes(project.id),
+                    'bg-red-800 border-red-800': formData.project_ids.includes(project.id),
+                    'bg-[#000] border-red-800': !formData.project_ids.includes(project.id),
                   }"
                 >
                   <!-- Icon -->
@@ -127,16 +127,16 @@
           <div class="flex justify-center gap-4 mt-8">
             <button
               type="button"
-              class="px-10 py-2 bg-[#8A8A8A] text-white rounded-[10px] hover:bg-gray-600"
+              class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
               @click="cancelEdit"
             >
-              ยกเลิก
+              Cabcel
             </button>
             <button
               type="submit"
-              class="px-10 py-2 bg-[#009C12] text-white rounded-[10px] hover:bg-[#1d7527]"
+              class="py-2 px-[67px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
             >
-              บันทึก
+              Save
             </button>
           </div>
         </form>

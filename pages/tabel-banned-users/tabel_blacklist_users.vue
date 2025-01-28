@@ -1,67 +1,53 @@
 <template>
-  <div class="bg-[#2b2b2b] shadow py-4">
-    <div class="container">
-      <div class="mb-6 rounded-md">
-        <h2 class="text-2xl font-bold text-white">ตารางข้อมูลผู้ใช้</h2>
-        <p class="text-[#ED9200] text-lg">หน้าแรก</p>
-      </div>
-    </div>
+  <div class="flex space-x-1 text-white">
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector1.png)] bg-cover bg-no-repeat pl-2 pr-[40px]"
+    >
+      Tabel Blacklist
+    </p>
+
+    <p
+      class="text-[#ffffff] text-xl bg-[url(/images/Vector2.png)] bg-contain bg-no-repeat pl-5 pr-[25px]"
+    >
+      <span class="text-[#990002]">Home </span> > Blacklist
+    </p>
   </div>
   <div class="container mx-auto p-4">
     <div class="content">
       <div class="text-white py-4 px-4 rounded-lg">
         <div class="p-4">
-          <h3 class="text-center text-white">
-            จัดการข้อมูลผู้ใช้ที่โดนแบล็คลีส
-          </h3>
-          <div class="flex justify-end mt-4">
-            <button
-              onclick="window.location.href='/add-user-backlist/add_user_backlist'"
-              class="px-6 py-1 bg-[#009C12] text-white rounded-lg shadow hover:bg-blue-600 flex items-center justify-center gap-2"
-            >
-              <img
-                src="assets\images\user 1.png"
-                alt="Avatar"
-                class="w-8 h-8 rounded"
-              />
-              <span class="text-lg">เพิ่มผู้ใช้</span>
-            </button>
-          </div>
+          <h1 class="text-center text-white">Manage User Blacklist</h1>
+
           <span class="text-lg"
-            >จัดการข้อมูล
-            <code class="text-lg text-[#ED9200]">ผู้ใช้</code>
-            ที่โดนแบล็คลีส</span
+            >Manage
+            <code class="text-lg text-[#ED9200]">User</code>
+            Blacklist</span
           >
         </div>
         <div
           class="flex flex-col md:flex-row justify-between items-center mb-5 gap-3 relative"
         >
           <!-- ค้นหาผู้ใช้ -->
-          <div class="relative w-full md:flex-1">
+          <div
+            class="flex items-center bg-[url(/images/Hud.png)] bg-cover lg:bg-contain bg-no-repeat pt-7 lg:pt-4 py-5 relative w-full md:flex-1"
+          >
             <input
               v-model="search"
               type="text"
-              placeholder="ค้นหา"
-              class="w-full px-4 p-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#8A8A8A]"
+              placeholder="Search"
+              class="w-full pl-6 py-2 focus:outline-none bg-transparent"
             />
-            <span class="absolute right-2 top-2 text-white mr-2">
-              <img
-                src="assets\images\icon _input search.png"
-                alt="Search Icon"
-                class="w-6 h-6"
-              />
-            </span>
           </div>
 
           <!-- ตัวกรองระดับผู้ใช้ -->
           <div class="w-full md:w-auto">
             <select
               v-model="selectedLevel"
-              class="w-full p-2 text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-[#8A8A8A] bg-[#009C12]"
+              class="w-full px-9 py-2 text-lg focus:outline-none bg-transparent bg-[url(/images/Cc.png)] bg-cover bg-no-repeat"
             >
-              <option value="">เลือกสถานะ</option>
-              <option value="ติดแบน">ติดแบน</option>
-              <option value="ปลดแบน">ปลดแบน</option>
+              <option value="" style="background: #c5c5c5">Status</option>
+              <option value="ติดแบน" style="background: #c5c5c5">ติดแบน</option>
+              <option value="ปลดแบน" style="background: #c5c5c5">ปลดแบน</option>
             </select>
           </div>
         </div>
@@ -73,11 +59,11 @@
             >
               <tr>
                 <!--<th class="px-4 py-4 text-center border">ID</th>-->
-                <th class="px-4 py-3 text-center rounded-t">ชื่อผู้ใช้</th>
-                <th class="px-4 py-3 text-center">รายละเอียด</th>
-                <th class="px-4 py-3 text-center">ชื่อโปรเจค</th>
-                <th class="px-4 py-3 text-center">สถานะ</th>
-                <th class="px-4 py-3 text-center rounded-t">เพิ่มเติม</th>
+                <th class="px-4 py-3 text-center">Username</th>
+                <th class="px-4 py-3 text-center">Detail</th>
+                <th class="px-4 py-3 text-center">ProjectName</th>
+                <th class="px-4 py-3 text-center">Status</th>
+                <th class="px-4 py-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -125,7 +111,7 @@
                         alt="Avatar"
                         class="w-6 h-5 rounded mr-1"
                       />
-                      <span>แก้ไข</span>
+                      <span>Edit</span>
                     </button>
                     <PopupEditUserBlacklist
                       v-if="showEditPopup"
@@ -145,13 +131,26 @@
                         alt="Avatar"
                         class="w-6 h-5 rounded mr-2"
                       />
-                      ลบ
+                      Delete
                     </button>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
+        </div>
+        <div class="flex justify-end mt-4">
+          <button
+            onclick="window.location.href='/add-user-backlist/add_user_backlist'"
+            class="px-12 py-1 bg-[url(/images/BGBT.png)] bg-cover bg-no-repeat text-lg text-white hover:bg-[#166820] flex items-center justify-center gap-2"
+          >
+            <img
+              src="assets\images\user 1.png"
+              alt="Avatar"
+              class="w-8 h-8 rounded"
+            />
+            <span class="text-lg">Add User</span>
+          </button>
         </div>
       </div>
 
@@ -164,7 +163,9 @@
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center rounded-[15px]"
         @click.self="cancelDelete"
       >
-        <div class="text-center w-[360px] mx-auto bg-[#252525] py-10 rounded-[15px]">
+        <div
+          class="text-center w-[450px] mx-auto bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat p-12 border-2 border-red-800"
+        >
           <template v-if="deleteState === 'confirm'">
             <!-- แสดง Popup ยืนยันการลบ -->
             <h2 class="text-white font-bold mb-4">ยืนยันการลบ</h2>
@@ -184,16 +185,16 @@
             </div>
             <div class="flex justify-center gap-3">
               <button
-                class="px-10 py-2 bg-[#8a8a8a] text-white rounded-[10px] hover:bg-gray-600"
+                class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
                 @click="cancelDelete"
               >
-                ยกเลิก
+                Cancel
               </button>
               <button
-                class="px-10 py-2 bg-[#BA0101] text-white rounded-[10px] hover:bg-[#771a1a]"
+                class="py-2 px-[71px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
                 @click="confirmDeleteUser"
               >
-                ยืนยัน
+                OK
               </button>
             </div>
           </template>
@@ -215,10 +216,10 @@
             </div>
             <div class="flex justify-center mb-4">
               <button
-                class="px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[8px] hover:bg-blue-700"
+                class="py-2 px-[71px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-red-600"
                 @click="cancelDelete"
               >
-                ตกลง
+                Ok
               </button>
             </div>
           </template>
@@ -226,25 +227,25 @@
       </div>
     </div>
   </div>
-  <div class="bg-gradient-to-b from-[#2b2b2b] to-[#0e0e0e] py-2">
-    <div class="flex justify-center items-center gap-2">
+  <div class="bg-gradient-to-r from-black via-[#3a3a3a] to-black shadow-xl backdrop-blur-md w-full px-4 py-3">
+    <div class="flex justify-center items-center gap-1 flex-wrap">
       <button
         @click="goToPage(1)"
         :disabled="currentPage === 1"
-        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-1 px-3 rounded border-white hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
           'cursor-not-allowed opacity-50': currentPage === 1,
         }"
       >
-        &lt;&lt;
+      <i class="fas fa-caret-left text-3xl p-0 text-[#CA000A]"></i>
       </button>
       <button
         v-for="(page, index) in paginationRange"
         :key="index"
         @click="goToPage(page)"
-        class="py-1 px-3 rounded border border-white bg-white hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-2 pb-3 md:pb-2 lg:pb-2 px-4 rounded  bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat  text-xs sm:text-sm"
         :class="{
-          'bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white':
+          'bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat text-white':
             currentPage === page,
         }"
       >
@@ -253,13 +254,12 @@
       <button
         @click="goToPage(totalPages)"
         :disabled="currentPage === totalPages"
-        class="py-1 px-3 rounded border text-white border-white bg-[#8A8A8A] hover:bg-[#616161] text-xs sm:text-sm"
+        class="py-1 px-3 rounded  text-white  hover:bg-[#616161] text-xs sm:text-sm"
         :class="{
-          'cursor-not-allowed opacity-50':
-            currentPage === totalPages,
+          'cursor-not-allowed opacity-50': currentPage === totalPages,
         }"
       >
-        &gt;&gt;
+      <i class="fas fa-caret-right text-3xl p-0 text-[#CA000A]"></i>
       </button>
     </div>
   </div>
@@ -272,13 +272,13 @@ import axios from "axios";
 import PopupEditUserBlacklist from "./components/PopupEditUserBlacklist.vue";
 
 useHead({
-    title: "ตารางจัดการผู้ใช้ที่โดนแบล็คลีส",
-    meta: [
-      { name: "robots", content: "noindex, nofollow" },
-      { name: "keywords", content: "" },
-      { name: "description", content: "จัดการผู้ใช้ที่โดนแบล็คลีส" },
-    ],
-  });
+  title: "Manage User Blacklist",
+  meta: [
+    { name: "robots", content: "noindex, nofollow" },
+    { name: "keywords", content: "" },
+    { name: "description", content: "Manage User Blacklist" },
+  ],
+});
 
 axios.interceptors.response.use(
   (response) => response, // หากไม่มีปัญหา
@@ -329,12 +329,27 @@ const totalPages = computed(() =>
   Math.ceil(filteredUsers.value.length / itemsPerPage)
 );
 const paginationRange = computed(() => {
+  const total = totalPages.value; // จำนวนหน้าทั้งหมด
+  const current = currentPage.value; // หน้าปัจจุบัน
+  const maxButtons = 6; // จำนวนปุ่มที่จะแสดง (รวม currentPage)
+
+  // คำนวณช่วงของหน้า
+  let startPage = Math.max(current - Math.floor(maxButtons / 2), 1);
+  let endPage = Math.min(startPage + maxButtons - 1, total);
+
+  // ปรับช่วงถ้าถึงขอบ
+  if (endPage - startPage + 1 < maxButtons) {
+    startPage = Math.max(endPage - maxButtons + 1, 1);
+  }
+
+  // สร้างช่วงของปุ่ม
   const range = [];
-  for (let i = 1; i <= totalPages.value; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     range.push(i);
   }
   return range;
 });
+
 
 // ฟังก์ชันสำหรับเปลี่ยนหน้า
 const goToPage = (page) => {

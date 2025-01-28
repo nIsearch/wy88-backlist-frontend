@@ -8,48 +8,48 @@
     @click.self="closeEditPopup"
   >
     <div
-      class="bg-[#252525] p-6 rounded-lg mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3"
+      class="bg-[url(/images/b2.png)] bg-cover bg-no-repeat border-[2px] border-red-800 p-6  mx-3 shadow-lg w-full md:w-2/3 lg:w-1/3"
     >
       <div class="text-center mb-4">
-        <p class="text-2xl font-bold">ฟอร์มแก้ไขข้อมูลผู้ใช้</p>
+        <p class="text-2xl font-bold">Edit User Blacklist</p>
         <p class="text-white text-left">
-          ฟอร์มแก้ไขข้อมูล <code class="text-lg text-[#ED9200]">แบล็คลีส</code>
+          Edit User <code class="text-lg text-[#ED9200]">Blacklist</code>
         </p>
       </div>
       <div v-if="Object.keys(userData).length > 0" class="card-body">
         <form id="dataForm" @submit.prevent="handleDataFormSubmit">
           <div class="form-group mb-4">
-            <label class="block text-left mb-1">ชื่อผู้ใช้:</label>
+            <label class="block text-left mb-1">Username:</label>
             <input
-              class="form-control w-full p-2 border rounded"
+              class="form-control w-full p-2  rounded"
               placeholder="กรอกชื่อผู้ใช้"
               type="text"
               v-model="userData.username"
               required
-              style="background-color: #8a8a8a; color: #fff"
+              style="background-color: #8a8a8a; color: #fff; border-color:red; "
             />
           </div>
           <div class="form-group mb-4">
-            <label class="block text-left mb-1">รายละเอียด:</label>
+            <label class="block text-left mb-1">Detail:</label>
             <textarea
               class="form-control w-full p-2 border rounded"
               placeholder="กรอกรายละเอียด"
               rows="5"
               v-model="userData.detail"
               required
-              style="background-color: #8a8a8a; color: #fff"
+              style="background-color: #8a8a8a; color: #fff; border-color:red"
             ></textarea>
           </div>
           <div class="form-group mb-4">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01"
-                >สถานะ</label
+              <label class="input-group-text " for="inputGroupSelect01" style="background-color: #000; color: #fff ;border-color:red"
+                >Status</label
               >
               <select
                 v-model="userData.status"
                 class="form-select"
                 id="inputGroupSelect01"
-                style="background-color: #8a8a8a; color: #fff"
+                style="background-color: #000; color: #fff ;border-color:red"
               >
                 <option
                   v-for="status in statusOptions"
@@ -64,18 +64,17 @@
           <div class="text-end mt-8">
             <button
               type="button"
-              class="px-8 py-2 mr-4 bg-[#8a8a8a] text-white rounded hover:bg-gray-700"
+              class="py-2 px-[61px] bg-[url(/images/C.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600 mr-3"
               @click="handleClose"
             >
-              ยกเลิก
+              Cancel
             </button>
             <button
               type="submit"
-              class="px-8 py-2 bg-[#009C12] text-white rounded hover:bg-[#1c8b29]"
+              class="py-2 px-[67px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
               :disabled="isLoading"
             >
-              <span v-if="isLoading">กำลังบันทึก...</span>
-              <span v-else>บันทึกข้อมูล</span>
+              Save
             </button>
           </div>
         </form>
@@ -91,8 +90,8 @@
     aria-modal="true"
     @click.self="closeSuccessPopup"
   >
-    <div class="text-center w-[300px] mx-auto bg-[#252525] p-6 rounded-lg">
-      <h2 class="font-semibold text-white mb-4">บันทึกข้อมูลสำเร็จ</h2>
+    <div class="text-center w-[350px] mx-auto bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat p-12 border-2 border-red-800">
+      <h2 class=" text-white mb-4">Data saved successfully</h2>
       <div class="flex justify-center items-center mb-4">
         <img
           src="assets\images\check 1.png"
@@ -101,10 +100,10 @@
         />
       </div>
       <button
-        class="mb-4 px-10 py-2 bg-gradient-to-b from-[#Ed9200] to-[#FC6900] text-white rounded-[10px] hover:bg-blue-700"
+        class="py-2 px-[64px] bg-[url(/images/S.png)] bg-cover bg-no-repeat text-white hover:bg-red-600"
         @click="closeSuccessPopup"
       >
-        ปิด
+        Ok
       </button>
     </div>
   </div>
