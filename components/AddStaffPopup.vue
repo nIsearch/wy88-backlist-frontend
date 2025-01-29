@@ -23,7 +23,7 @@
             <input
               id="username"
               v-model="formData.username"
-              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-white"
+              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-black"
               required
               
             />
@@ -36,7 +36,7 @@
               id="password"
               v-model="formData.password"
               type="text"
-              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-white"
+              class="w-full p-2 border border-red-800 rounded-[8px]  bg-[#000] placeholder-black"
               required
              
             />

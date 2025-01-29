@@ -16,7 +16,7 @@
     <div class="content">
       <div class="text-white py-4 px-4 rounded-lg">
         <div class="p-4">
-          <h1 class="text-center text-white">Manage User Blacklist</h1>
+          <h1 class="text-center text-white">Tabel Manage User Blacklist</h1>
 
           <span class="text-lg"
             >Manage
@@ -168,13 +168,13 @@
         >
           <template v-if="deleteState === 'confirm'">
             <!-- แสดง Popup ยืนยันการลบ -->
-            <h2 class="text-white font-bold mb-4">ยืนยันการลบ</h2>
+            <h2 class="text-white font-bold mb-4">Confirm Deletion</h2>
             <p class="mb-6 text-white">
-              คุณต้องการลบผู้ใช้
+              Delet User
               <span class="font-semibold text-red-600">{{
                 userToDelete.username
               }}</span>
-              ใช่หรือไม่?
+              ?
             </p>
             <div class="flex justify-center items-center mb-4">
               <img
@@ -191,7 +191,7 @@
                 Cancel
               </button>
               <button
-                class="py-2 px-[71px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
+                class="py-2 px-[71px] bg-[url(/images/d.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
                 @click="confirmDeleteUser"
               >
                 OK
@@ -201,11 +201,11 @@
 
           <template v-else-if="deleteState === 'success'">
             <!-- แสดงข้อความสำเร็จ -->
-            <h2 class="text-white font-bold mb-4">ลบข้อมูลผู้ใช้สำเร็จ</h2>
+            <h2 class="text-white font-bold mb-4"> Deleted Successfully </h2>
             <p class="mb-6 text-white">
-              ลบผู้ใช้
+              Delet User
               <span class="text-red-600">{{ deleteSuccessMessage }}</span
-              >สำเร็จ
+              >Successful
             </p>
             <div class="flex justify-center items-center mb-4">
               <img

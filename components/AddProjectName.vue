@@ -48,8 +48,8 @@
         v-else
         class="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center "
       >
-      <div class="text-center w-[300px] mx-auto bg-[url(/images/bgpop.png)] bg-contain bg-no-repeat p-6">
-        <h2 class="text-4xl font-bold text-white mb-4">เพิ่มโปรเจคสำเร็จ</h2>
+      <div class="text-center w-[450px] mx-auto bg-[url(/images/bgpop.png)] bg-cover bg-no-repeat py-10 border border-red-800">
+        <h2 class="text-4xl font-bold text-white mb-4">Add Project Successfully</h2>
         <div class="flex justify-center items-center mb-4">
           <img src="assets/images/Group 41.png" alt="" class="w-20 h-20 mb-4" />
         </div>

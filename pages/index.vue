@@ -101,11 +101,12 @@
         <!-- Pagination -->
         <div class="flex justify-center items-center gap-1 flex-wrap">
           <!-- ปุ่มหน้าแรก -->
+          <!-- ปุ่มหน้าแรก -->
           <button
-            @click="goToPage(1)"
+            @click="goToPage(currentPage - 1)"
             :disabled="currentPage === 1"
             class="py-1 px-3 rounded border-white hover:bg-[#616161] text-xs sm:text-sm"
-            :class="{ 'cursor-not-allowed  opacity-50': currentPage === 1 }"
+            :class="{ 'cursor-not-allowed opacity-50': currentPage === 1 }"
           >
             <i class="fas fa-caret-left text-3xl p-0 text-[#CA000A]"></i>
           </button>
@@ -120,17 +121,13 @@
               'bg-[url(/images/G10.png)] bg-cover lg:bg-cover bg-no-repeat text-white':
                 currentPage === page,
             }"
-            v-if="page !== '...'"
           >
             {{ page }}
           </button>
-          <span v-else class="py-2 px-3 text-gray-900 text-xs sm:text-sm"
-            >...</span
-          >
 
           <!-- ปุ่มหน้าสุดท้าย -->
           <button
-            @click="goToPage(totalPages)"
+            @click="goToPage(currentPage + 1)"
             :disabled="currentPage === totalPages"
             class="py-1 px-3 rounded text-white hover:bg-[#616161] text-xs sm:text-sm"
             :class="{
@@ -260,45 +257,27 @@ export default {
 
     // สร้างหน้า Pagination
     const visiblePages = computed(() => {
-      const totalToShow = 5;
-      const boundaryPages = 2;
-      let pages = [];
+      const totalToShow = 7; // แสดงแค่ 7 หน้า
+      const pages = [];
 
-      if (totalPages.value <= totalToShow + boundaryPages * 2) {
-        pages = Array.from({ length: totalPages.value }, (_, i) => i + 1);
+      if (totalPages.value <= totalToShow) {
+        // ถ้าจำนวนหน้าน้อยกว่าหรือเท่ากับ 7 ให้แสดงทั้งหมด
+        for (let i = 1; i <= totalPages.value; i++) {
+          pages.push(i);
+        }
       } else {
-        const startRange = Array.from(
-          { length: boundaryPages },
-          (_, i) => i + 1
-        );
-        const endRange = Array.from(
-          { length: boundaryPages },
-          (_, i) => totalPages.value - boundaryPages + i + 1
-        );
+        const half = Math.floor(totalToShow / 2);
+        let startPage = Math.max(currentPage.value - half, 1);
+        let endPage = startPage + totalToShow - 1;
 
-        const middleRange = [];
-        const middleStart = Math.max(
-          currentPage.value - Math.floor(totalToShow / 2),
-          boundaryPages + 1
-        );
-        const middleEnd = Math.min(
-          currentPage.value + Math.floor(totalToShow / 2),
-          totalPages.value - boundaryPages
-        );
-
-        for (let i = middleStart; i <= middleEnd; i++) {
-          middleRange.push(i);
+        if (endPage > totalPages.value) {
+          endPage = totalPages.value;
+          startPage = endPage - totalToShow + 1;
         }
 
-        pages = [...startRange];
-        if (middleRange[0] > boundaryPages + 1) pages.push("...");
-        pages = [...pages, ...middleRange];
-        if (
-          middleRange[middleRange.length - 1] <
-          totalPages.value - boundaryPages
-        )
-          pages.push("...");
-        pages = [...pages, ...endRange];
+        for (let i = startPage; i <= endPage; i++) {
+          pages.push(i);
+        }
       }
 
       return pages;

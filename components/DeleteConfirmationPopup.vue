@@ -42,7 +42,7 @@
         <button
           v-if="!isSuccess"
           @click="confirmDelete"
-          class="py-2 px-[71px] bg-[url(/images/Cc.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
+          class="py-2 px-[71px] bg-[url(/images/d.png)] bg-cover bg-no-repeat text-white  hover:bg-blue-600"
         >
           OK
         </button>

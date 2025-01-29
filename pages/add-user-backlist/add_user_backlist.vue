@@ -116,7 +116,7 @@
                 class="container text-white bg-[url(/images/b2.png)] bg-cover bg-no-repeat py-8 border-2 border-red-900"
               >
                 <div class="px-5 pb-2">
-                  <h2 class="text-white text-center">Fill out the form</h2>
+                  <h2 class="text-white text-center">Add User Form</h2>
                   <span class="text-2xl text-white">
                     Add User
 

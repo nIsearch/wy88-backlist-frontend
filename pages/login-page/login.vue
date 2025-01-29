@@ -73,7 +73,7 @@
       v-if="showSuccessPopup"
       class="fixed inset-0 bg-[#2B2B2B] bg-opacity-50 flex items-center justify-center z-50"
     >
-      <div class="bg-[#252525] p-6 rounded-md shadow-lg text-center">
+      <div class="bg-[#252525] p-6 rounded-md shadow-lg text-center border border-red-800">
         <h2 class="text-lg font-semibold mb-4 text-white">ล็อคอินสำเร็จ</h2>
         <p class="text-lg font-semibold mb-4 text-white">
           กำลังพาคุณไปยังหน้าแรก...

@@ -15,7 +15,7 @@
     <div class="content">
       <div class="py-4 px-4 rounded-lg">
         <div class="p-4">
-          <h2 class="text-center text-white">Tabel Manage Admin</h2>
+          <h1 class="text-center text-white">Tabel Manage Admin</h1>
 
           <span class="text-lg">
             Tabel Manage
@@ -50,7 +50,7 @@
                 <th class="px-4 py-3 text-center">UserName</th>
                 <th class="px-4 py-3 text-center">Password</th>
                 <th class="px-4 py-3 text-center">UserRole</th>
-                <th class="px-4 py-3 text-center">Project</th>
+                <th class="px-4 py-3 text-center">ProjectName</th>
                 <th class="px-4 py-3 text-center">Action</th>
               </tr>
             </thead>

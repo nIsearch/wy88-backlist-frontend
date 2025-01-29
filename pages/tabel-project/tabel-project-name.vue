@@ -14,6 +14,15 @@
   <div class="container mx-auto p-4">
     <div class="content">
       <div class="py-4 px-4 rounded-lg text-white">
+        <div class="p-4">
+          <h1 class="text-center text-white">Tabel Manage Project</h1>
+
+          <span class="text-lg"
+            >Tabel Manage
+            <code class="text-lg text-[#ED9200]">Project</code>
+            </span
+          >
+        </div>
         <div class="flex items-center mb-4">
           <main class="w-full">
             <!-- Search Bar -->
@@ -128,7 +137,7 @@
       <div v-if="errorMessage" class="mt-4 text-red-500">
         {{ errorMessage }}
       </div>
-
+ 
       <!-- Popup ยืนยันการลบ -->
       <div
         v-if="showDeletePopup"
@@ -182,7 +191,7 @@
           </p>
           <div class="flex justify-center items-center mb-4">
             <img
-              src="assets\images\bin 1.png"
+              src="assets\images\Bin_Success_Icon.png"
               alt=""
               class="w-20 h-20 mb-4"
             />
