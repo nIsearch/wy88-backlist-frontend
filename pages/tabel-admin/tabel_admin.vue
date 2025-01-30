@@ -304,7 +304,7 @@ const fetchUsers = async () => {
     })();
 
     const response = await axios.get(
-      "http://127.0.0.1:8000/black-list-user/back-end/staff-list",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/staff-list",
       {
         headers: {
           accept: "application/json",
@@ -396,7 +396,7 @@ const handleSave = async (newStaff) => {
     }
 
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/add-backend-user",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/add-backend-user",
       {
         method: "POST",
         headers: {
@@ -462,7 +462,7 @@ const handleConfirmDelete = async () => {
 
   try {
     const response = await fetch(
-      `http://127.0.0.1:8000/black-list-user/back-end/delete-staff?id=${selectedUserId.value}`,
+      `https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/delete-staff?id=${selectedUserId.value}`,
       {
         method: "DELETE",
         headers: {

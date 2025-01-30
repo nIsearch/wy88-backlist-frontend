@@ -363,7 +363,7 @@ const fetchUsers = async () => {
   isLoading.value = true;
   try {
     const response = await axios.get(
-      "http://127.0.0.1:8000/black-list-user/back-end/project-list",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/project-list",
       {
         headers: {
           Accept: "application/json",
@@ -420,7 +420,7 @@ const confirmDelete = async () => {
     }
 
     const response = await fetch(
-      `http://127.0.0.1:8000/black-list-user/back-end/delete-project-list?id=${projectToDelete.value.id}`,
+      `https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/delete-project-list?id=${projectToDelete.value.id}`,
       {
         method: "DELETE",
         headers: {

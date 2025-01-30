@@ -170,7 +170,7 @@ const projects = ref([]);
 const fetchProjects = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/project-list",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/project-list",
       { headers: { Accept: "application/json" } }
     );
     if (!response.ok) throw new Error("Failed to fetch projects");
@@ -240,7 +240,7 @@ const handleSubmit = async () => {
       .join(" , ");
 
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/edit-staff",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/edit-staff",
       {
         method: "PUT",
         headers: {

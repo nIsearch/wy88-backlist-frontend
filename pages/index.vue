@@ -212,7 +212,7 @@ export default {
         }
 
         const response = await axios.get(
-          "http://127.0.0.1:8000/black-list-user/back-end/user-list",
+          "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/user-list",
           {
             headers: {
               accept: "application/json",

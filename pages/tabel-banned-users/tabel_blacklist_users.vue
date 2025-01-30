@@ -393,7 +393,7 @@ const fetchUsers = async () => {
 
     // เรียก API พร้อมส่ง Token
     const response = await axios.get(
-      "http://127.0.0.1:8000/black-list-user/back-end/user-list",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/user-list",
       {
         headers: {
           accept: "application/json",
@@ -487,7 +487,7 @@ const confirmDeleteUser = async () => {
 
     // ส่งคำขอ DELETE ไปยัง API
     const response = await axios.delete(
-      `http://127.0.0.1:8000/black-list-user/back-end/delete-user-list`,
+      `https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/delete-user-list`,
       {
         headers: {
           accept: "application/json",

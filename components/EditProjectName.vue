@@ -30,7 +30,7 @@ const handleSave = async () => {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/black-list-user/back-end/edit-project-list", {
+    const response = await fetch("https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/edit-project-list", {
       method: "PUT",
       headers: {
         "verify_admin": verifyAdmin,

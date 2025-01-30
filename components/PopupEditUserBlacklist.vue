@@ -131,7 +131,7 @@ const handleClose = () => {
 const fetchStatusOptions = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/status-user"
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/status-user"
     );
     if (!response.ok) throw new Error("Failed to fetch status options");
     const data = await response.json();
@@ -156,7 +156,7 @@ const handleDataFormSubmit = async () => {
     if (!token) throw new Error("Token not found. Please log in again.");
 
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/edit-user-list",
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/edit-user-list",
       {
         method: "PUT",
         headers: {

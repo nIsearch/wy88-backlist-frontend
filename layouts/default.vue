@@ -79,6 +79,19 @@
           </NuxtLink>
 
           <NuxtLink
+            to="/tabel-project/tabel-project-name"
+            class="px-4 py-8 text-[#fff] rounded flex items-center bg-center bg-no-repeat justify-center space-x-4 transition duration-200"
+            :class="[
+              isActive('/tabel-project/tabel-project-name')
+                ? 'bg-[url(/images/Project.png)]'
+                : 'bg-[url(/images/Projectsh.png)]',
+            ]"
+            @click="sidebarOpen = false"
+          >
+            <span class="text-center w-full pl-14">Manage Projects</span>
+          </NuxtLink>
+
+          <NuxtLink
             to="/add-user-backlist/add_user_backlist"
             class="px-4 py-8 text-[#fff] rounded flex items-center bg-center bg-no-repeat justify-center space-x-4 transition duration-200"
             :class="[
@@ -91,18 +104,7 @@
             <span class="text-center w-full pl-14">Add User</span>
           </NuxtLink>
 
-          <NuxtLink
-            to="/tabel-project/tabel-project-name"
-            class="px-4 py-8 text-[#fff] rounded flex items-center bg-center bg-no-repeat justify-center space-x-4 transition duration-200"
-            :class="[
-              isActive('/tabel-project/tabel-project-name')
-                ? 'bg-[url(/images/Project.png)]'
-                : 'bg-[url(/images/Projectsh.png)]',
-            ]"
-            @click="sidebarOpen = false"
-          >
-            <span class="text-center w-full pl-14">Manage Projects</span>
-          </NuxtLink>
+          
 
           <NuxtLink
             to="/tabel-banned-users/tabel_blacklist_users"

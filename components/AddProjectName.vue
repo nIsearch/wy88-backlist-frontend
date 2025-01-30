@@ -91,7 +91,7 @@ const handleSubmit = async () => {
   try {
     // เรียก API เพื่อเพิ่มโปรเจค
     const response = await fetch(
-      `http://127.0.0.1:8000/black-list-user/back-end/add-project-list?project_name=${encodeURIComponent(
+      `https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/add-project-list?project_name=${encodeURIComponent(
         projectName.value
       )}`,
       {

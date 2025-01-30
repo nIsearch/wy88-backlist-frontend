@@ -170,7 +170,7 @@ const isSuccess = ref(false);
 const loadProjects = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/black-list-user/back-end/project-list"
+      "https://backlist-user-235021042402.asia-southeast1.run.app/black-list-user/back-end/project-list"
     );
     const data = await response.json();
     projects.value = data?.result_data?.data || [];
