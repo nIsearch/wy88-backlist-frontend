@@ -24,7 +24,7 @@ const handleSave = async () => {
   }
 
   if (!verifyAdmin || !accessToken) {
-    apiResponse.value = "เกิดข้อผิดพลาด: ไม่พบข้อมูลการตรวจสอบในระบบ";
+    apiResponse.value = "An error occurred: No authentication data found in the system.";
     isSaving.value = false;
     return;
   }
@@ -45,14 +45,14 @@ const handleSave = async () => {
 
     if (response.ok) {
       const result = await response.json();
-      apiResponse.value = "บันทึกสำเร็จ!";
+      apiResponse.value = "Saved successfully!";
       isSuccessPopupVisible.value = true; // แสดง Popup สำเร็จ
     } else {
       const errorResult = await response.json();
-      apiResponse.value = `เกิดข้อผิดพลาด: ${errorResult.message}`;
+      apiResponse.value = `Error: ${errorResult.message}`;
     }
   } catch (error) {
-    apiResponse.value = `เกิดข้อผิดพลาด: ${error.message}`;
+    apiResponse.value = `Error: ${error.message}`;
   } finally {
     isSaving.value = false;
   }
@@ -107,7 +107,7 @@ const closeSuccessPopup = () => {
         </button>
       </div>
       <div v-if="apiResponse" class="mt-4 text-sm text-center">
-        <p :class="{'text-green-500': apiResponse === 'บันทึกสำเร็จ!', 'text-red-500': apiResponse.includes('เกิดข้อผิดพลาด')}">
+        <p :class="{'text-green-500': apiResponse === 'Saved successfully!', 'text-red-500': apiResponse.includes('Error')}">
           {{ apiResponse }}
         </p>
       </div>

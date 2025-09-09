@@ -84,7 +84,7 @@ const handleSubmit = async () => {
   const accessToken = localStorage.getItem("access_token");
 
   if (!verifyAdmin || !accessToken) {
-    alert("เกิดข้อผิดพลาด: ไม่พบข้อมูลการตรวจสอบในระบบ");
+    alert("An error occurred: No authentication data found in the system.");
     return;
   }
 
@@ -106,14 +106,14 @@ const handleSubmit = async () => {
 
     if (response.ok) {
       const result = await response.json();
-      console.log("เพิ่มโปรเจคสำเร็จ:", result);
+      console.log("Successfully added project:", result);
       isSubmitted.value = true;
 
       // แจ้งให้หน้าหลักรู้ว่ามีการเพิ่มโปรเจคสำเร็จ
       emit("project-added", projectName.value);
     } else {
       const errorResult = await response.json();
-      alert(`เกิดข้อผิดพลาด: ${JSON.stringify(errorResult)}`);
+      alert(`Error: ${JSON.stringify(errorResult)}`);
     }
   } catch (error) {
     console.error("Error:", error);

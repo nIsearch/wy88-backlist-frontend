@@ -65,7 +65,7 @@
                   colspan="5"
                   class="px-4 py-2 text-center text-gray-500 bg-yellow-100"
                 >
-                  ไม่พบข้อมูลในตารางที่ส่งมา
+                No data found in table.
                 </td>
               </tr>
               <tr v-for="user in paginatedUsers" :key="user.id">
@@ -321,11 +321,11 @@ const fetchUsers = async () => {
   } catch (error) {
     if (error.response && error.response.status === 403) {
       errorMessage.value =
-        "คุณไม่มีสิทธิ์เข้าถึงข้อมูลนี้ โปรดตรวจสอบ Token หรือสิทธิ์ของคุณ";
+        "You have permission to access this information. Please check your Token or permissions.";
     } else if (error.response && error.response.status === 401) {
-      errorMessage.value = "Unauthorized: กรุณาตรวจสอบ Token ของคุณ";
+      errorMessage.value = "Unauthorized: Verify your Token";
     } else {
-      errorMessage.value = "เกิดข้อผิดพลาด โปรดลองอีกครั้ง";
+      errorMessage.value = "An error occurred. Please try again.";
     }
   } finally {
     isLoading.value = false;
@@ -391,7 +391,7 @@ const handleSave = async (newStaff) => {
     }
 
     if (!accessToken || !verifyAdmin) {
-      alert("Token หรือข้อมูลผู้ดูแลไม่ถูกต้อง");
+      alert("Token or administrator information is incorrect.");
       return;
     }
 
@@ -411,15 +411,15 @@ const handleSave = async (newStaff) => {
 
     if (response.ok) {
       const result = await response.json();
-      console.log("เพิ่มพนักงานสำเร็จ:", result);
+      console.log("Successfully added employees:", result);
       // ไม่มีการปิด Popup ที่นี่ เพราะ Popup จะจัดการเอง
     } else {
       const error = await response.json();
-      alert(`เกิดข้อผิดพลาด : ${error.message}`);
+      alert(`Error : ${error.message}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+    alert("An error occurred sending data.");
   }
 };
 
@@ -456,7 +456,7 @@ const handleConfirmDelete = async () => {
   }
 
   if (!accessToken || !verifyAdmin) {
-    alert("Access Token หรือข้อมูล verify_admin ไม่พบ");
+    alert("Access Token or verify_admin information not found.");
     return;
   }
 
@@ -480,11 +480,11 @@ const handleConfirmDelete = async () => {
       );
     } else {
       const error = await response.json();
-      alert(`เกิดข้อผิดพลาด: ${error.message}`);
+      alert(`Error: ${error.message}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("เกิดข้อผิดพลาดในการส่งคำขอลบ");
+    alert("An error occurred sending the deletion request.");
   }
 };
 
@@ -512,7 +512,7 @@ const handleCloseEditPopup = () => {
 
 // บันทึกข้อมูลที่แก้ไข
 const handleSaveEdit = (updatedStaff) => {
-  console.log("บันทึกข้อมูลที่แก้ไข:", updatedStaff);
+  console.log("Save the edited information.:", updatedStaff);
   // ค้นหาและอัปเดตข้อมูลใน `paginatedUsers`
   const index = paginatedUsers.value.findIndex(
     (user) => user.id === updatedStaff.id

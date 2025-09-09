@@ -180,7 +180,7 @@ const fetchProjects = async () => {
     syncSelectedProjects();
   } catch (error) {
     console.error(error);
-    alert("เกิดข้อผิดพลาดในการดึงข้อมูลโปรเจค");
+    alert("An error occurred fetching project data.");
   } finally {
     isLoading.value = false;
   }
@@ -227,7 +227,7 @@ const handleSubmit = async () => {
     let verifyAdmin = localStorage.getItem("full_name");
 
     if (!token || !verifyAdmin) {
-      alert("Access Token หรือข้อมูล verify_admin ไม่พบ");
+      alert("Access Token or verify_admin information not found.");
       return;
     }
 
@@ -262,7 +262,7 @@ const handleSubmit = async () => {
       const errorData = await response.json();
       console.log("API Error Response:", errorData);
       alert(
-        `เกิดข้อผิดพลาด: ${errorData.message || "ไม่สามารถบันทึกข้อมูลได้"}`
+        `Error: ${errorData.message || "Can save data"}`
       );
       return;
     }
@@ -270,7 +270,7 @@ const handleSubmit = async () => {
     isSuccess.value = true;
   } catch (error) {
     console.error("Error:", error);
-    alert("เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์");
+    alert("There was an error connecting to the server.");
   }
 };
 

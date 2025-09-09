@@ -22,7 +22,7 @@
             <label class="block text-left mb-1">Username:</label>
             <input
               class="form-control w-full p-2  rounded"
-              placeholder="กรอกชื่อผู้ใช้"
+              
               type="text"
               v-model="userData.username"
               required
@@ -33,7 +33,7 @@
             <label class="block text-left mb-1">Detail:</label>
             <textarea
               class="form-control w-full p-2 border rounded"
-              placeholder="กรอกรายละเอียด"
+              
               rows="5"
               v-model="userData.detail"
               required

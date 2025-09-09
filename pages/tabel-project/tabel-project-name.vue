@@ -67,7 +67,7 @@
                   colspan="5"
                   class="px-4 py-2 text-center text-gray-500 bg-yellow-100"
                 >
-                  ไม่พบข้อมูลในตารางที่ส่งมา
+                No data found in table
                 </td>
               </tr>
               <tr v-for="user in paginatedUsers" :key="user.id">
@@ -415,7 +415,7 @@ const confirmDelete = async () => {
     const accessToken = localStorage.getItem("access_token");
 
     if (!verifyAdmin || !accessToken) {
-      alert("เกิดข้อผิดพลาด: ไม่พบข้อมูลการตรวจสอบในระบบ");
+      alert("An error occurred: No authentication data found in the system.");
       return;
     }
 
@@ -440,7 +440,7 @@ const confirmDelete = async () => {
       );
     } else {
       const errorResult = await response.json();
-      alert(`เกิดข้อผิดพลาด: ${JSON.stringify(errorResult)}`);
+      alert(`Error: ${JSON.stringify(errorResult)}`);
       showDeletePopup.value = false;
     }
   } catch (error) {
@@ -470,7 +470,7 @@ const closeAddPopup = () => {
 };
 
 const handleProjectAdded = (projectName) => {
-  console.log("โปรเจคที่เพิ่ม:", projectName);
+  console.log("Added projects:", projectName);
   closeAddPopup();
 };
 </script>

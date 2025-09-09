@@ -410,9 +410,9 @@ const fetchUsers = async () => {
     users.value = response.data.result_data.data || [];
   } catch (error) {
     if (error.response && error.response.status === 401) {
-      errorMessage.value = "Unauthorized: กรุณาตรวจสอบ Token ของคุณ";
+      errorMessage.value = "Unauthorized: Please verify your Token.";
     } else {
-      errorMessage.value = "ไม่สามารถโหลดข้อมูลได้ โปรดลองอีกครั้ง";
+      errorMessage.value = "Unable to load data Please try again.";
     }
   } finally {
     isLoading.value = false;
@@ -506,12 +506,12 @@ const confirmDeleteUser = async () => {
       users.value = users.value.filter((u) => u.id !== userToDelete.value.id);
       deleteState.value = "success"; // เปลี่ยนสถานะ Popup เป็นสำเร็จ
     } else {
-      alert("ไม่สามารถลบข้อมูลได้ กรุณาลองใหม่");
+      alert("Unable to delete data. Please try again.");
     }
   } catch (error) {
     alert(
       error.response?.data?.message ||
-        "เกิดข้อผิดพลาดในการลบข้อมูล กรุณาลองใหม่"
+        "An error occurred deleting data. Please try again."
     );
   } finally {
     isLoading.value = false; // ปิดสถานะ Loading

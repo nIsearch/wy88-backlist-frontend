@@ -92,7 +92,7 @@
         </div>
       </div>
       <div v-else class="text-center text-gray-600">
-        <p>ไม่พบข้อมูลในตาราง</p>
+        <p>No data found in table</p>
       </div>
       <!-- Pagination -->
       <div
@@ -227,7 +227,7 @@ export default {
       } catch (error) {
         errorMessage.value =
           error.response?.data?.message ||
-          "ไม่สามารถโหลดข้อมูลได้ โปรดลองอีกครั้ง";
+          "Unable to load data Please try again.";
         showError.value = true;
       }
     };

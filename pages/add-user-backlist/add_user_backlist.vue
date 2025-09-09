@@ -414,7 +414,7 @@ const handleExcelFormSubmit = async () => {
 
   const file = fileInputRef.value?.files[0];
   if (!file) {
-    apiResponse.value = "กรุณาเลือกไฟล์ก่อนอัปโหลด.";
+    apiResponse.value = "Please select a file before uploading.";
     return;
   }
 
@@ -472,13 +472,13 @@ const handleExcelFormSubmit = async () => {
 
         const result = await response.json();
         apiResponse.value =
-          result.result_data?.message || "ไม่สามารถดึงข้อความได้.";
+          result.result_data?.message || "Unable to retrieve message.";
         await delay(1000);
       }
       isSuccess.value = true;
     } catch (error) {
       console.error("Error:", error);
-      apiResponse.value = "เกิดข้อผิดพลาดในการส่งข้อมูล.";
+      apiResponse.value = "An error occurred sending data.";
       isSuccess.value = false;
     } finally {
       isLoading.value = false;
@@ -498,7 +498,7 @@ const handleDataFormSubmit = async (event) => {
     !detailRef.value ||
     selectedProjects.value.length === 0
   ) {
-    apiResponse.value = "กรุณากรอกข้อมูลให้ครบถ้วน.";
+    apiResponse.value = "Please fill out the information completely.";
     return;
   }
 
@@ -545,11 +545,11 @@ const handleDataFormSubmit = async (event) => {
     const result = await response.json();
     // Extract the message
     apiResponse.value =
-      result.result_data?.message || "ไม่สามารถดึงข้อความได้.";
+      result.result_data?.message || "Unable to retrieve message.";
     isSuccess.value = true;
   } catch (error) {
     console.error("Error:", error);
-    apiResponse.value = "เกิดข้อผิดพลาดในการส่งข้อมูล.";
+    apiResponse.value = "An error occurred sending data..";
     isSuccess.value = false;
   } finally {
     isLoading.value = false;
@@ -572,7 +572,7 @@ const onFileSelected = () => {
 
 const openConfirmationModal = () => {
   if (!uploadedFileName.value) {
-    alert("กรุณาเลือกไฟล์ก่อน!");
+    alert("Please select a file first!");
     return;
   }
   showConfirmationModal.value = true; // แสดง Popup ยืนยัน
